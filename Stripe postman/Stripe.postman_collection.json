@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "59d6c802-f0c7-41c8-95c8-6b236da5390b",
+		"name": "Stripe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create customer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "description",
+							"value": "My First Test Customer (created for API docs)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/customers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create client secret",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "payment_method_types[]",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "customer",
+							"value": "cus_Jz3Z0RtuNItjAn",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer payments method list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_methods?customer=cus_Jz3Z0RtuNItjAn&type=card",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_methods"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "cus_Jz3Z0RtuNItjAn"
+						},
+						{
+							"key": "type",
+							"value": "card"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to pay via saved credit card",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "payment_method_types[]",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "customer",
+							"value": "cus_Jz3Z0RtuNItjAn",
+							"type": "text"
+						},
+						{
+							"key": "payment_method",
+							"value": "pm_1JL5poD0lyIvMvjNwBqFy1IH",
+							"type": "text"
+						},
+						{
+							"key": "off_session",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "confirm",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new payment methode from credit card token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "card[token]",
+							"value": "tok_1JL7t4D0lyIvMvjNEXWyZKBM",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_methods",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_methods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "attach created payment methode to customer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{secretKey}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer",
+							"value": "cus_Jz3Z0RtuNItjAn",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_methods/pm_1JL7vMD0lyIvMvjNtxxXlKTY/attach",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_methods",
+						"pm_1JL7vMD0lyIvMvjNtxxXlKTY",
+						"attach"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
