@@ -41,7 +41,7 @@ final class ApplePayViewController: UIViewController {
                                                           currency: "USD")
         paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: 50.00)]
         if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
-            applePayContext.presentApplePay(on: self)
+            applePayContext.presentApplePay(completion: nil)
         } else {
             print("❌error")
         }

@@ -28,6 +28,7 @@
 		C5503A4726BA825F0002012B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5503A4926BA825F0002012B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5503A4F26BAECF60002012B /* ApplePayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayViewController.swift; sourceTree = "<group>"; };
+		C5503A5326BD33FF0002012B /* StripeTestApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StripeTestApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 		C5503A3A26BA82580002012B /* StripeTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				C5503A5326BD33FF0002012B /* StripeTestApp.entitlements */,
 				C5503A3B26BA82580002012B /* AppDelegate.swift */,
 				C5503A3F26BA82580002012B /* ViewController.swift */,
 				C5503A4F26BAECF60002012B /* ApplePayViewController.swift */,
