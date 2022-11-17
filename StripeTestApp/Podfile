@@ -5,7 +5,7 @@ target 'StripeTestApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Stripe', '5.0.1'
-  pod 'SnapKit', '21.7.0'
+  pod 'SnapKit', '5.6.0'
+  pod 'Stripe', '23.2.0'
 
 end
