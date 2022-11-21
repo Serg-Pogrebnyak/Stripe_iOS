@@ -32,16 +32,16 @@ class ViewController: UIViewController {
     
     lazy var addCardButton: UIButton = {
         let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
         button.setTitle("Add credit card", for: .normal)
-        button.backgroundColor = .black
         button.addTarget(self, action: #selector(didTapAddCardButton), for: .touchUpInside)
 
         return button
     }()
     lazy var testPaymentWithMockDataButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Test payment with mock data", for: .normal)
-        button.backgroundColor = .black
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle("Test payment with credit card data", for: .normal)
         button.addTarget(self, action: #selector(testPaymentWithMockData), for: .touchUpInside)
 
         return button
@@ -132,6 +132,7 @@ class ViewController: UIViewController {
     
     @objc
     private func testPaymentWithMockData() {
+        // NOTE: if you want use your own text field for collect data
         let stripeCardParams = STPCardParams()
         stripeCardParams.number = "4000008260003178"
         stripeCardParams.expMonth = 11
@@ -140,9 +141,10 @@ class ViewController: UIViewController {
 
         let cardParams = STPPaymentMethodCardParams(cardSourceParams: stripeCardParams)
         let methodParams = STPPaymentMethodParams(card: cardParams, billingDetails: nil, metadata: nil)
-        let methodIndent = STPPaymentIntentParams(clientSecret: clientSecret)
-        methodIndent.paymentMethodParams = methodParams
-        methodIndent.setupFutureUsage = .offSession
+        let methodIndent = STPPaymentIntentParams(clientSecret: paymentIntentClientSecret)
+        methodIndent.paymentMethodParams = cardView2.paymentMethodParams// NOTE: for more details see
+        //Save for future usage? yes - .offSession, no - .none
+        methodIndent.setupFutureUsage = STPPaymentIntentSetupFutureUsage.offSession
         
         let paymentHandler = STPPaymentHandler.shared()
 
@@ -157,20 +159,6 @@ class ViewController: UIViewController {
             @unknown default:
                 fatalError("unknown result")
             }
-        }
-    }
-    
-    @objc
-    private func generateTokenFromCreditCardInfo() {
-        let stripeCardParams = STPCardParams()
-        stripeCardParams.number = "4000008260003178"
-        stripeCardParams.expMonth = 11
-        stripeCardParams.expYear = 23
-        stripeCardParams.cvc = "123"
-
-        let stpApiClient = STPAPIClient(publishableKey: publishKey)
-        stpApiClient.createToken(withCard: stripeCardParams) { (token, error) in
-            print(token as Any)
         }
     }
 
