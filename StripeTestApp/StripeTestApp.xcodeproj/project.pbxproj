@@ -25,6 +25,7 @@
 		D0A795F8292FA4930007BB96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F7292FA4930007BB96 /* Constants.swift */; };
 		D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
+		D0DE2484292FD61200553CB4 /* LocalizableStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */; };
 		D0EE75F5292BAF1A005D3094 /* Pods_StripeTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3AEFBAB73F7EC28FA8DD8 /* Pods_StripeTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,9 +36,7 @@
 		C5503A3826BA82580002012B /* StripeTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StripeTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5503A3B26BA82580002012B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5503A3F26BA82580002012B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C5503A4226BA82580002012B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5503A4426BA825F0002012B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C5503A4726BA825F0002012B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5503A4926BA825F0002012B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5503A4F26BAECF60002012B /* ApplePayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayViewController.swift; sourceTree = "<group>"; };
 		C5503A5326BD33FF0002012B /* StripeTestApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StripeTestApp.entitlements; sourceTree = "<group>"; };
@@ -53,6 +52,9 @@
 		D0A795F7292FA4930007BB96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViaCCVC.swift; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D0DE2485292FD61200553CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableStrings.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				C5503A4926BA825F0002012B /* Info.plist */,
 				D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */,
 				D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */,
+				D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				C5503A4826BA825F0002012B /* LaunchScreen.storyboard in Resources */,
 				C5503A4526BA825F0002012B /* Assets.xcassets in Resources */,
+				D0DE2484292FD61200553CB4 /* LocalizableStrings.strings in Resources */,
 				C5503A4326BA82580002012B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +311,7 @@
 		C5503A4126BA82580002012B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C5503A4226BA82580002012B /* Base */,
+				D0DE247E292FD59B00553CB4 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -315,9 +319,17 @@
 		C5503A4626BA825F0002012B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C5503A4726BA825F0002012B /* Base */,
+				D0DE247F292FD59B00553CB4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0DE2485292FD61200553CB4 /* en */,
+			);
+			name = LocalizableStrings.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -327,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -388,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
