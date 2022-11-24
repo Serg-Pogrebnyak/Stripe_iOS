@@ -23,6 +23,7 @@
 		D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F3292F92B60007BB96 /* CustomerResponse.swift */; };
 		D0A795F6292F92C50007BB96 /* PaymentIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F5292F92C50007BB96 /* PaymentIntent.swift */; };
 		D0A795F8292FA4930007BB96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F7292FA4930007BB96 /* Constants.swift */; };
+		D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */; };
 		D0EE75F5292BAF1A005D3094 /* Pods_StripeTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3AEFBAB73F7EC28FA8DD8 /* Pods_StripeTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		D0A795F3292F92B60007BB96 /* CustomerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerResponse.swift; sourceTree = "<group>"; };
 		D0A795F5292F92C50007BB96 /* PaymentIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntent.swift; sourceTree = "<group>"; };
 		D0A795F7292FA4930007BB96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViaCCVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C5503A4426BA825F0002012B /* Assets.xcassets */,
 				C5503A4626BA825F0002012B /* LaunchScreen.storyboard */,
 				C5503A4926BA825F0002012B /* Info.plist */,
+				D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
+				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,
 				C5503A3C26BA82580002012B /* AppDelegate.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,
 				D0A795EB292F7EBF0007BB96 /* CustomerProvider.swift in Sources */,
