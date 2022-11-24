@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,8 @@
 		D0A795F8292FA4930007BB96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F7292FA4930007BB96 /* Constants.swift */; };
 		D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
-		D0DE2484292FD61200553CB4 /* LocalizableStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */; };
+		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
+		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
 		D0EE75F5292BAF1A005D3094 /* Pods_StripeTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3AEFBAB73F7EC28FA8DD8 /* Pods_StripeTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,8 @@
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D0DE2485292FD61200553CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableStrings.strings; sourceTree = "<group>"; };
+		D0DE2485292FD61200553CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D0DE248A292FD7AB00553CB4 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		C5503A2F26BA82580002012B = {
 			isa = PBXGroup;
 			children = (
+				D0DE248A292FD7AB00553CB4 /* R.generated.swift */,
 				C5503A3A26BA82580002012B /* StripeTestApp */,
 				C5503A3926BA82580002012B /* Products */,
 				FB0B460DA39E6C9C8A142CC3 /* Pods */,
@@ -110,7 +113,7 @@
 				C5503A4926BA825F0002012B /* Info.plist */,
 				D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */,
 				D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */,
-				D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */,
+				D0DE2486292FD61200553CB4 /* Localizable.strings */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5503A4C26BA825F0002012B /* Build configuration list for PBXNativeTarget "StripeTestApp" */;
 			buildPhases = (
+				D0DE2487292FD6D900553CB4 /* R.swift */,
 				748AF0AC020E6BE9B56B1C24 /* [CP] Check Pods Manifest.lock */,
 				C5503A3426BA82580002012B /* Sources */,
 				C5503A3526BA82580002012B /* Frameworks */,
@@ -233,7 +237,7 @@
 			files = (
 				C5503A4826BA825F0002012B /* LaunchScreen.storyboard in Resources */,
 				C5503A4526BA825F0002012B /* Assets.xcassets in Resources */,
-				D0DE2484292FD61200553CB4 /* LocalizableStrings.strings in Resources */,
+				D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */,
 				C5503A4326BA82580002012B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +284,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D0DE2487292FD6D900553CB4 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -298,6 +322,7 @@
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
+				D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */,
 				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,
 				C5503A3C26BA82580002012B /* AppDelegate.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,
@@ -324,12 +349,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		D0DE2486292FD61200553CB4 /* LocalizableStrings.strings */ = {
+		D0DE2486292FD61200553CB4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0DE2485292FD61200553CB4 /* en */,
 			);
-			name = LocalizableStrings.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

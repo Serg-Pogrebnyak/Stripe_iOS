@@ -9,6 +9,7 @@ target 'StripeTestApp' do
   pod 'Stripe', '23.2.0'
   pod 'Alamofire', '5.6.1'
   pod 'SVProgressHUD', '2.2.5'
+  pod 'R.swift', '6.1.0'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

@@ -34,7 +34,9 @@ final class PayViaCCVC: UIViewController {
     
     // MARK: UI
     private func setupUI() {
-        tabBarItem = .init(title: "Credit Cards", image: UIImage(named: "creditCardIcon"), tag: .zero)
+        tabBarItem = .init(title: R.string.localizable.tabBarCreditCard(),
+                           image: R.image.creditCardIcon(),
+                           tag: .zero)
         amountTextField.placeholder = "Please enter amount to pay"
         creditCardTextField.postalCodeEntryEnabled = false
         payButton.setTitle("Pay", for: .normal)

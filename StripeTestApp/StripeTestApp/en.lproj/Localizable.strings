@@ -1,7 +1,9 @@
 /* 
-  LocalizableStrings.strings
+  Localizable.strings
   StripeTestApp
 
   Created by Serhii on 24.11.2022.
   
 */
+
+"tabBar.creditCard" = "Credit Cards";
