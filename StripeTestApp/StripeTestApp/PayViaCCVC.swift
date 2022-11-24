@@ -26,15 +26,9 @@ final class PayViaCCVC: UIViewController {
     // MARK: - Private functions
     // MARK: @IBAction
     @IBAction private func didTapPayButton(_ sender: Any) {
-        guard let amount = Int(amountTextField.text ?? .init()) else {
-            print("❌wrong amount") // TODO: show error here
-            return
-        }
-        guard creditCardTextField.isValid else {
-            print("❌card data is invalid") // TODO: show error here
-            return
-        }
-        
+        guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
+        guard creditCardTextField.isValid else { return ProgressHUD.show(error: "Credit card data is invalid") }
+        ProgressHUD.show()
         getCustomers(andPayWithAmount: amount)
     }
     
@@ -57,7 +51,7 @@ final class PayViaCCVC: UIViewController {
                 }
                 self?.createNewPayment(withAmount: amount, forCustomer: customer)
             case .failure(let error):
-                print("❌", error) // TODO: show error here
+                ProgressHUD.show(error: error.localizedDescription)
             }
         }
     }
@@ -68,7 +62,7 @@ final class PayViaCCVC: UIViewController {
             case .success(let paymentIntentModel):
                 self?.makePayment(withSecret: paymentIntentModel.secret)
             case .failure(let error):
-                print("❌", error)
+                ProgressHUD.show(error: error.localizedDescription)
             }
         }
     }
@@ -82,15 +76,20 @@ final class PayViaCCVC: UIViewController {
         let paymentHandler = STPPaymentHandler.shared()
         
         paymentHandler.confirmPayment(methodIndent, with: self) { (status, paymentIntent, error) in
-            switch (status) {
+            switch status {
             case .failed:
-                print("Payment failed")
+                ProgressHUD.show(error: "Payment failed")
             case .canceled:
-                print("Payment canceled")
+                ProgressHUD.show(error: "Payment canceled")
             case .succeeded:
-                print("Payment succeeded", paymentIntent?.amount as Any)
-            @unknown default:
-                fatalError("unknown result")
+                guard let amount = paymentIntent?.amount,
+                      let currency = paymentIntent?.currency,
+                      let customerId = paymentIntent?.paymentMethod?.customerId
+                else {
+                    ProgressHUD.show(success: "Payment succeeded! But no additional info")
+                    return
+                }
+                ProgressHUD.show(success: "Payment succeeded! \n Order Amount: \(amount)\(currency) \n Customer id: \(customerId)")
             }
         }
     }

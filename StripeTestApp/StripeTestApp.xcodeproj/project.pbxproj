@@ -24,6 +24,7 @@
 		D0A795F6292F92C50007BB96 /* PaymentIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F5292F92C50007BB96 /* PaymentIntent.swift */; };
 		D0A795F8292FA4930007BB96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F7292FA4930007BB96 /* Constants.swift */; };
 		D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */; };
+		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0EE75F5292BAF1A005D3094 /* Pods_StripeTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3AEFBAB73F7EC28FA8DD8 /* Pods_StripeTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		D0A795F5292F92C50007BB96 /* PaymentIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntent.swift; sourceTree = "<group>"; };
 		D0A795F7292FA4930007BB96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViaCCVC.swift; sourceTree = "<group>"; };
+		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				C5503A4626BA825F0002012B /* LaunchScreen.storyboard */,
 				C5503A4926BA825F0002012B /* Info.plist */,
 				D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */,
+				D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */,
 				C5503A5026BAECF70002012B /* ApplePayViewController.swift in Sources */,
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
+				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
 				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,
