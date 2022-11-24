@@ -16,10 +16,8 @@ protocol URLRequestBuilder: URLRequestConvertible {
 }
 
 extension URLRequestBuilder {
-    private var privateSecretKey: String {
-        .init()
-    }
-    private var privateSecretKeyBase64: String { Data(privateSecretKey.utf8).base64EncodedString() }
+    
+    private var privateSecretKeyBase64: String { Data(Constants.stripeSecretKey.utf8).base64EncodedString() }
     
     var baseURL: String { "https://api.stripe.com/v1/" }
 
