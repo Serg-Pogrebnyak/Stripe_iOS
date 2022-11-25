@@ -12,7 +12,7 @@
 		C5503A4326BA82580002012B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5503A4126BA82580002012B /* Main.storyboard */; };
 		C5503A4526BA825F0002012B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5503A4426BA825F0002012B /* Assets.xcassets */; };
 		C5503A4826BA825F0002012B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5503A4626BA825F0002012B /* LaunchScreen.storyboard */; };
-		C5503A5026BAECF70002012B /* ApplePayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5503A4F26BAECF60002012B /* ApplePayViewController.swift */; };
+		C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5503A4F26BAECF60002012B /* ApplePayVС.swift */; };
 		D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E2292BC9010007BB96 /* ServerNetworkManager.swift */; };
 		D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E5292BCB280007BB96 /* URLRequestBuilder.swift */; };
 		D0A795E8292BD3250007BB96 /* ProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E7292BD3250007BB96 /* ProviderManager.swift */; };
@@ -39,7 +39,7 @@
 		C5503A3F26BA82580002012B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5503A4426BA825F0002012B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5503A4926BA825F0002012B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5503A4F26BAECF60002012B /* ApplePayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayViewController.swift; sourceTree = "<group>"; };
+		C5503A4F26BAECF60002012B /* ApplePayVС.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplePayVС.swift"; sourceTree = "<group>"; };
 		C5503A5326BD33FF0002012B /* StripeTestApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StripeTestApp.entitlements; sourceTree = "<group>"; };
 		D0A795E2292BC9010007BB96 /* ServerNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerNetworkManager.swift; sourceTree = "<group>"; };
 		D0A795E5292BCB280007BB96 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				C5503A5326BD33FF0002012B /* StripeTestApp.entitlements */,
 				C5503A3B26BA82580002012B /* AppDelegate.swift */,
 				C5503A3F26BA82580002012B /* ViewController.swift */,
-				C5503A4F26BAECF60002012B /* ApplePayViewController.swift */,
+				C5503A4F26BAECF60002012B /* ApplePayVС.swift */,
 				C5503A4126BA82580002012B /* Main.storyboard */,
 				C5503A4426BA825F0002012B /* Assets.xcassets */,
 				C5503A4626BA825F0002012B /* LaunchScreen.storyboard */,
@@ -317,7 +317,7 @@
 				C5503A4026BA82580002012B /* ViewController.swift in Sources */,
 				D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */,
 				D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */,
-				C5503A5026BAECF70002012B /* ApplePayViewController.swift in Sources */,
+				C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */,
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,

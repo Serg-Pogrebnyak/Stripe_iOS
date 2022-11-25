@@ -1,5 +1,5 @@
 //
-//  ApplePayViewController.swift
+//  ApplePayVС.swift
 //  StripeTestApp
 //
 //  Created by Sergey Pohrebnuak on 04.08.2021.
@@ -9,21 +9,21 @@ import UIKit
 import PassKit
 import Stripe
 
-final class ApplePayViewController: UIViewController {
+final class ApplePayVС: UIViewController {
     
+    // MARK: Outlets
     @IBOutlet private weak var amountTextField: UITextField!
     @IBOutlet private weak var applePayButton: PKPaymentButton!
     
+    // MARK: VC life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
     }
     
-    private func setupUI() {
-        
-    }
-    
+    // MARK: - Private functions
+    // MARK: @IBAction
     @IBAction private func didTapApplePayButton(_ sender: Any) {
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
                                                       country: "US",
@@ -35,8 +35,17 @@ final class ApplePayViewController: UIViewController {
             print("❌error")
         }
     }
+    
+    // MARK: UI
+    private func setupUI() {
+        amountTextField.placeholder = "Please enter amount to pay"
+    }
+    
+    // MARK: Other
 }
-extension ApplePayViewController: STPApplePayContextDelegate {
+
+// MARK: - STPApplePayContextDelegate
+extension ApplePayVС: STPApplePayContextDelegate {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: STPPaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
         let clientSecret = "" // from api call - payment_intents
         completion(clientSecret, nil)

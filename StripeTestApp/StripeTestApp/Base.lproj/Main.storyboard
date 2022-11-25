@@ -131,7 +131,7 @@
         <!--Item-->
         <scene sceneID="Hmz-ZC-ee0">
             <objects>
-                <viewController id="YGt-K1-IK3" customClass="ApplePayViewController" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YGt-K1-IK3" customClass="ApplePayVС" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFd-fW-dAA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
