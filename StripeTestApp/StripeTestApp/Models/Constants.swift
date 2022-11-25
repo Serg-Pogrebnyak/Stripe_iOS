@@ -10,4 +10,5 @@ import Foundation
 struct Constants {
     static var stripeSecretKey = String.init()
     static var stripePublicKey = String.init()
+    static var merchantId = String.init()
 }
