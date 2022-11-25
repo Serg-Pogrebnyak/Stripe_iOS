@@ -27,6 +27,9 @@
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
+		D0DE248D2931112F00553CB4 /* PaymentMethodsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248C2931112F00553CB4 /* PaymentMethodsProvider.swift */; };
+		D0DE248F2931114600553CB4 /* SavedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248E2931114600553CB4 /* SavedCard.swift */; };
+		D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */; };
 		D0EE75F5292BAF1A005D3094 /* Pods_StripeTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3AEFBAB73F7EC28FA8DD8 /* Pods_StripeTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0DE2485292FD61200553CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0DE248A292FD7AB00553CB4 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		D0DE248C2931112F00553CB4 /* PaymentMethodsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsProvider.swift; sourceTree = "<group>"; };
+		D0DE248E2931114600553CB4 /* SavedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCard.swift; sourceTree = "<group>"; };
+		D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 			children = (
 				D0A795EA292F7EBF0007BB96 /* CustomerProvider.swift */,
 				D0A795EC292F846A0007BB96 /* PaymentIntentProvider.swift */,
+				D0DE248C2931112F00553CB4 /* PaymentMethodsProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 				D0A795F3292F92B60007BB96 /* CustomerResponse.swift */,
 				D0A795F5292F92C50007BB96 /* PaymentIntent.swift */,
 				D0A795F7292FA4930007BB96 /* Constants.swift */,
+				D0DE248E2931114600553CB4 /* SavedCard.swift */,
+				D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,11 +329,14 @@
 				C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */,
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
+				D0DE248F2931114600553CB4 /* SavedCard.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
 				D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */,
 				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,
+				D0DE248D2931112F00553CB4 /* PaymentMethodsProvider.swift in Sources */,
 				C5503A3C26BA82580002012B /* AppDelegate.swift in Sources */,
+				D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,
 				D0A795EB292F7EBF0007BB96 /* CustomerProvider.swift in Sources */,
 			);

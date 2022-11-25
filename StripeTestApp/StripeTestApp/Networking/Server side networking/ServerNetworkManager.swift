@@ -41,6 +41,28 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
+    func getSavedCC(callback: @escaping (Result<[SavedCard]>) -> Void) {
+        getUsers {
+            switch $0 {
+            case .success(let customers):
+                guard let customer = customers.first else {
+                    return callback(.failure(ServerNetworkManagerError.usersListEmpty))
+                }
+                ProviderManager().send(service: PaymentMethodsProvider.saved(customer.id),
+                                       decodeType: PaymentMethodsResponse.self) {
+                    switch $0 {
+                    case .success(let paymentMethodsResponse):
+                        callback(.success(paymentMethodsResponse.creditCards))
+                    case .failure(let error):
+                        callback(.failure(error))
+                    }
+                }
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+    
     // MARK: Customers
     private func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers, decodeType: CustomerResponse.self) { result in
