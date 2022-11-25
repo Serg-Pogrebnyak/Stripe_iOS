@@ -135,10 +135,39 @@
                     <view key="view" contentMode="scaleToFill" id="uFd-fW-dAA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Xqz-lO-Yc0">
+                                <rect key="frame" x="20" y="408.5" width="374" height="79"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzl-a3-zz1">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOc-Ey-OS4" customClass="PKPaymentButton">
+                                        <rect key="frame" x="0.0" y="49" width="374" height="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="didTapApplePayButton:" destination="YGt-K1-IK3" eventType="touchUpInside" id="Qub-I0-bSM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7O0-RO-sdM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7O0-RO-sdM" firstAttribute="trailing" secondItem="Xqz-lO-Yc0" secondAttribute="trailing" constant="20" id="J62-nW-HDL"/>
+                            <constraint firstItem="Xqz-lO-Yc0" firstAttribute="leading" secondItem="7O0-RO-sdM" secondAttribute="leading" constant="20" id="OxT-f8-aN8"/>
+                            <constraint firstItem="Xqz-lO-Yc0" firstAttribute="centerX" secondItem="uFd-fW-dAA" secondAttribute="centerX" id="dGZ-p0-bRF"/>
+                            <constraint firstItem="Xqz-lO-Yc0" firstAttribute="centerY" secondItem="uFd-fW-dAA" secondAttribute="centerY" id="tGK-An-97U"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Cqj-co-qUw"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="hzl-a3-zz1" id="PDg-2p-SqD"/>
+                        <outlet property="applePayButton" destination="BOc-Ey-OS4" id="Gtk-Hd-jTX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KW-hA-Z3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

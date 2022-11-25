@@ -11,35 +11,24 @@ import Stripe
 
 final class ApplePayViewController: UIViewController {
     
-    private lazy var applePayButton: PKPaymentButton = {
-        let button = PKPaymentButton(paymentButtonType: .plain,
-                                     paymentButtonStyle: .black)
-        button.addTarget(self,
-                         action: #selector(handleApplePayButtonTapped),
-                         for: .touchUpInside)
-        return button
-    }()
+    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var applePayButton: PKPaymentButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
-    }
-    
-    private func setupLayout() {
-        view.addSubview(applePayButton)
         
-        applePayButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        setupUI()
     }
     
-    @objc
-    private func handleApplePayButtonTapped() {
-        let merchantIdentifier = "merchant.id"
-            let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: merchantIdentifier,
-                                                          country: "US",
-                                                          currency: "USD")
-        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: 50.00)]
+    private func setupUI() {
+        
+    }
+    
+    @IBAction private func didTapApplePayButton(_ sender: Any) {
+        let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
+                                                      country: "US",
+                                                      currency: "USD")
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: 0.50)]
         if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
             applePayContext.presentApplePay(completion: nil)
         } else {
@@ -52,8 +41,9 @@ extension ApplePayViewController: STPApplePayContextDelegate {
         let clientSecret = "" // from api call - payment_intents
         completion(clientSecret, nil)
     }
+    
     func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPPaymentStatus, error: Error?) {
-          switch status {
+        switch status {
         case .success:
             print("✅ success")
         case .error:
