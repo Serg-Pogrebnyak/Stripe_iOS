@@ -14,6 +14,7 @@ final class PayViaCCVC: UIViewController {
     // MARK: Outlets
     @IBOutlet private weak var amountTextField: UITextField!
     @IBOutlet private weak var creditCardTextField: STPPaymentCardTextField!
+    @IBOutlet private weak var saveForFuturePaymentsSwitch: UISwitch!
     @IBOutlet private weak var payButton: UIButton!
     
     // MARK: VC life cycle
@@ -53,7 +54,7 @@ final class PayViaCCVC: UIViewController {
         let methodIndent = STPPaymentIntentParams(clientSecret: secret)
         methodIndent.paymentMethodParams = creditCardTextField.paymentMethodParams
         //Save for future usage? yes - .offSession, no - .none
-        methodIndent.setupFutureUsage = STPPaymentIntentSetupFutureUsage.offSession
+        methodIndent.setupFutureUsage = saveForFuturePaymentsSwitch.isOn ? .offSession : STPPaymentIntentSetupFutureUsage.none
         
         let paymentHandler = STPPaymentHandler.shared()
         
