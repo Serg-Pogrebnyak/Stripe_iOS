@@ -13,6 +13,8 @@ struct SavedCard: Decodable {
     let expYear: Int
     let last4: String
     
+    var description: String { "\(brand) \(expMonth)/\(expYear) \(last4)" }
+    
     enum CodingKeys: String, CodingKey {
         case card
         
