@@ -141,7 +141,7 @@ class ViewController: UIViewController {
 
         let cardParams = STPPaymentMethodCardParams(cardSourceParams: stripeCardParams)
         let methodParams = STPPaymentMethodParams(card: cardParams, billingDetails: nil, metadata: nil)
-        let methodIndent = STPPaymentIntentParams(clientSecret: paymentIntentClientSecret)
+        let methodIndent = STPPaymentIntentParams(clientSecret: .init())
         methodIndent.paymentMethodParams = cardView2.paymentMethodParams// NOTE: for more details see
         //Save for future usage? yes - .offSession, no - .none
         methodIndent.setupFutureUsage = STPPaymentIntentSetupFutureUsage.offSession
