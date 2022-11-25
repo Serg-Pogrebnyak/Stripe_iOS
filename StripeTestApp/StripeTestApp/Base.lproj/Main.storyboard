@@ -95,7 +95,7 @@
         <!--Item-->
         <scene sceneID="KSI-Zl-6qB">
             <objects>
-                <viewController id="npI-qk-1Ul" customClass="PaymentMethodsVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="npI-qk-1Ul" customClass="CreditCardListVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eil-bH-fzj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,5 +1,5 @@
 //
-//  PaymentMethodsVC.swift
+//  CreditCardListVC.swift
 //  StripeTestApp
 //
 //  Created by Serhii on 25.11.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PaymentMethodsVC: UIViewController {
+final class CreditCardListVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet private weak var paymentMethodsTableView: UITableView!
@@ -68,7 +68,7 @@ final class PaymentMethodsVC: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension PaymentMethodsVC: UITableViewDataSource {
+extension CreditCardListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         creditCards.count
     }
