@@ -29,7 +29,14 @@ final class PayViaCCVC: UIViewController {
         guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
         guard creditCardTextField.isValid else { return ProgressHUD.show(error: "Credit card data is invalid") }
         ProgressHUD.show()
-        getCustomers(andPayWithAmount: amount)
+        ServerNetworkManager().createSecret(forAmount: amount) { [weak self] result in
+            switch result {
+            case .success(let secret):
+                self?.makePayment(withSecret: secret)
+            case .failure(let error):
+                ProgressHUD.show(error: error.localizedDescription)
+            }
+        }
     }
     
     // MARK: UI
@@ -40,33 +47,6 @@ final class PayViaCCVC: UIViewController {
         amountTextField.placeholder = "Please enter amount to pay"
         creditCardTextField.postalCodeEntryEnabled = false
         payButton.setTitle("Pay", for: .normal)
-    }
-    
-    // MARK: Other
-    private func getCustomers(andPayWithAmount amount: Int) {
-        ServerNetworkManager().getUsers() { [weak self] result in
-            switch result {
-            case .success(let customers):
-                guard let customer = customers.first else {
-                    // TODO: show no customers
-                    return
-                }
-                self?.createNewPayment(withAmount: amount, forCustomer: customer)
-            case .failure(let error):
-                ProgressHUD.show(error: error.localizedDescription)
-            }
-        }
-    }
-    
-    private func createNewPayment(withAmount amount: Int, forCustomer customer: Customer) {
-        ServerNetworkManager().createNewPayment(CreatePaymentIntentModel(amount: amount, customer: customer)) { [weak self] result in
-            switch result {
-            case .success(let paymentIntentModel):
-                self?.makePayment(withSecret: paymentIntentModel.secret)
-            case .failure(let error):
-                ProgressHUD.show(error: error.localizedDescription)
-            }
-        }
     }
     
     private func makePayment(withSecret secret: String) {

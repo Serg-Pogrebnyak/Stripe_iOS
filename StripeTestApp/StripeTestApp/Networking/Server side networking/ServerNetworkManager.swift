@@ -7,14 +7,42 @@
 
 import Foundation
 
+//TODO: Just remove this in future
+public enum ServerNetworkManagerError: LocalizedError {
+    case usersListEmpty
+    
+    public var errorDescription: String? {
+        switch self {
+        case .usersListEmpty:
+            return "Users list is empty, create new user and try again"
+        }
+    }
+}
+
 protocol ServerNetworkManagerType {
-    func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void)
-    func createNewPayment(_ paymentModel: CreatePaymentIntentType, callback: @escaping (Result<PaymentIntent>) -> Void)
+    func createSecret(forAmount amount: Int, callback: @escaping (Result<String>) -> Void)
 }
 
 final class ServerNetworkManager: ServerNetworkManagerType {
+    
+    func createSecret(forAmount amount: Int, callback: @escaping (Result<String>) -> Void) {
+        getUsers {
+            switch $0 {
+            case .success(let customers):
+                if let customer = customers.first {
+                    self.createNewPayment(CreatePaymentIntentModel(amount: amount, customer: customer),
+                                          callback: callback)
+                } else {
+                    callback(.failure(ServerNetworkManagerError.usersListEmpty))
+                }
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+    
     // MARK: Customers
-    func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
+    private func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers, decodeType: CustomerResponse.self) { result in
             switch result {
             case .success(let customerResponse):
@@ -26,9 +54,14 @@ final class ServerNetworkManager: ServerNetworkManagerType {
     }
     
     // MARK: Payment Intents
-    func createNewPayment(_ paymentModel: CreatePaymentIntentType, callback: @escaping (Result<PaymentIntent>) -> Void) {
+    private func createNewPayment(_ paymentModel: CreatePaymentIntentType, callback: @escaping (Result<String>) -> Void) {
         ProviderManager().send(service: PaymentIntentProvider.create(paymentModel), decodeType: PaymentIntent.self) {
-            callback($0)
+            switch $0 {
+            case .success(let paymentIntent):
+                callback(.success(paymentIntent.secret))
+            case .failure(let error):
+                callback(.failure(error))
+            }
         }
     }
 }
