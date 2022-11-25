@@ -24,7 +24,7 @@ final class PayViaCCVC: UIViewController {
     }
     
     // MARK: - Private functions
-    // MARK: @IBAction
+    // MARK: Action
     @IBAction private func didTapPayButton(_ sender: Any) {
         guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
         guard creditCardTextField.isValid else { return ProgressHUD.show(error: "Credit card data is invalid") }

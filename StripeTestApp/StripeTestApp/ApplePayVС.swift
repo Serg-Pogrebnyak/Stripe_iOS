@@ -23,7 +23,7 @@ final class ApplePayVС: UIViewController {
     }
     
     // MARK: - Private functions
-    // MARK: @IBAction
+    // MARK: Action
     @IBAction private func didTapApplePayButton(_ sender: Any) {
         guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
