@@ -25,10 +25,11 @@ final class ApplePayVС: UIViewController {
     // MARK: - Private functions
     // MARK: @IBAction
     @IBAction private func didTapApplePayButton(_ sender: Any) {
+        guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
                                                       country: "US",
                                                       currency: "USD")
-        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: 0.50)]
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: NSDecimalNumber(value: amount))]
         if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
             applePayContext.presentApplePay(completion: nil)
         } else {
@@ -40,15 +41,20 @@ final class ApplePayVС: UIViewController {
     private func setupUI() {
         amountTextField.placeholder = "Please enter amount to pay"
     }
-    
-    // MARK: Other
 }
 
 // MARK: - STPApplePayContextDelegate
 extension ApplePayVС: STPApplePayContextDelegate {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: STPPaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
-        let clientSecret = "" // from api call - payment_intents
-        completion(clientSecret, nil)
+        let amount = Int(amountTextField.text ?? .init()) ?? .zero
+        ServerNetworkManager().createSecret(forAmount: amount) {
+            switch $0 {
+            case .success(let secret):
+                completion(secret, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
     }
     
     func applePayContext(_ context: STPApplePayContext, didCompleteWith status: STPPaymentStatus, error: Error?) {
