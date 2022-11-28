@@ -10,7 +10,7 @@ import UIKit
 final class CreditCardListVC: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet private weak var paymentMethodsTableView: UITableView!
+    @IBOutlet private weak var creditCardsTableView: UITableView!
     
     // MARK: Variables
     private var creditCards = [SavedCard]()
@@ -39,19 +39,19 @@ final class CreditCardListVC: UIViewController {
     // MARK: Action
     @objc private func draggingRefreshControl() {
         creditCards.removeAll()
-        paymentMethodsTableView.reloadData()
+        creditCardsTableView.reloadData()
         fetchSavedCreditCards()
         refreshControl.beginRefreshingManually()
     }
     
     // MARK: UI
     private func setupUI() {
-        paymentMethodsTableView.refreshControl = refreshControl
+        creditCardsTableView.refreshControl = refreshControl
     }
     
     private func endRefreshingAndReloadTableView() {
         refreshControl.endRefreshing()
-        paymentMethodsTableView.reloadData()
+        creditCardsTableView.reloadData()
     }
     
     // MARK: Other
@@ -93,8 +93,8 @@ final class CreditCardListVC: UIViewController {
             case .success(let removedCreditCard):
                 if let removedCCIndex = strongSelf.creditCards.firstIndex(of: removedCreditCard) {
                     strongSelf.creditCards.remove(at: removedCCIndex)
-                    strongSelf.paymentMethodsTableView.deleteRows(at: [.init(row: removedCCIndex, section: .zero)],
-                                                                  with: .automatic)
+                    strongSelf.creditCardsTableView.deleteRows(at: [.init(row: removedCCIndex, section: .zero)],
+                                                               with: .automatic)
                     callback(true)
                 } else {
                     ProgressHUD.show(error: R.string.localizable.ccListRemovedCardNotFound())
