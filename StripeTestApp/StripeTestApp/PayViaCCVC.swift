@@ -27,10 +27,13 @@ final class PayViaCCVC: UIViewController {
     // MARK: - Private functions
     // MARK: Action
     @IBAction private func didTapPayButton(_ sender: Any) {
-        guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
+        guard   amountTextField.isValid,
+                let amount = amountTextField.amount else { return ProgressHUD.show(error: "Amount is incorrect") }
         guard creditCardTextField.isValid else { return ProgressHUD.show(error: "Credit card data is invalid") }
+        
+        let amountInCents = AmountConverter.amountToCents(amount)
         ProgressHUD.show()
-        ServerNetworkManager().createSecret(forAmount: amount) { [weak self] result in
+        ServerNetworkManager().createSecret(forAmount: amountInCents) { [weak self] result in
             switch result {
             case .success(let secret):
                 self?.makePayment(withSecret: secret)
@@ -65,13 +68,14 @@ final class PayViaCCVC: UIViewController {
             case .canceled:
                 ProgressHUD.show(error: "Payment canceled")
             case .succeeded:
-                guard let amount = paymentIntent?.amount,
+                guard let amountInCents = paymentIntent?.amount,
                       let currency = paymentIntent?.currency,
                       let customerId = paymentIntent?.paymentMethod?.customerId
                 else {
                     ProgressHUD.show(success: "Payment succeeded! But no additional info")
                     return
                 }
+                let amount = AmountConverter.centsToAmount(amountInCents)
                 ProgressHUD.show(success: "Payment succeeded! \n Order Amount: \(amount)\(currency) \n Customer id: \(customerId)")
             }
         }

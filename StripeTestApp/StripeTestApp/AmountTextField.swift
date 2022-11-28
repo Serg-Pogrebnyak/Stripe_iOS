@@ -17,6 +17,7 @@ final class AmountTextField: UITextField {
     
     var digitsAfterDot = 2
     var isValid: Bool { shouldChangeCharacterModel.check(text ?? .init(), .init(), .init()) }
+    var amount: Float? { .init(text ?? .init()) }
     
     private var _delegate: UITextFieldDelegate?
     private var shouldChangeCharacterModel: ShouldChangeCharacterModel {
