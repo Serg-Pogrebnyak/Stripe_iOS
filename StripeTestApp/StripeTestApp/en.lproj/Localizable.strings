@@ -6,4 +6,13 @@
   
 */
 
+//General
+"Yes" = "Yes";
+"No" = "No";
+"Delete" = "Delete";
+
 "tabBar.creditCard" = "Credit Cards";
+
+//CreditCardListVC
+"ccList.areYouSure" = "Are you sure?";
+"ccList.confirmToDeleteAction" = "Tap yes if you confirm delete action";
