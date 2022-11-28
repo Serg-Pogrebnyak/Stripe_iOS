@@ -48,7 +48,7 @@ final class PayViaCCVC: UIViewController {
         tabBarItem = .init(title: R.string.localizable.tabBarCreditCard(),
                            image: R.image.creditCardIcon(),
                            tag: .zero)
-        amountTextField.placeholder = "Please enter amount to pay"
+        amountTextField.placeholder = R.string.localizable.amountTextFieldPlaceholder()
         creditCardTextField.postalCodeEntryEnabled = false
         payButton.setTitle("Pay", for: .normal)
     }

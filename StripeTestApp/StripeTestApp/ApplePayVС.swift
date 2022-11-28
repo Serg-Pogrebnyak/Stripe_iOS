@@ -26,7 +26,11 @@ final class ApplePayVС: UIViewController {
     // MARK: Action
     @IBAction private func didTapApplePayButton(_ sender: Any) {
         guard   amountTextField.isValid,
-                let amount = amountTextField.amount else { return ProgressHUD.show(error: "Amount is incorrect") }
+                let amount = amountTextField.amount
+        else {
+            ProgressHUD.show(error: R.string.localizable.applePayAmountIsIncorrect())
+            return
+        }
         
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
                                                       country: "US",
@@ -36,20 +40,23 @@ final class ApplePayVС: UIViewController {
         if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
             applePayContext.presentApplePay(completion: nil)
         } else {
-            print("❌error")
+            ProgressHUD.show(error: R.string.localizable.applePayErrorCreateRequest())
         }
     }
     
     // MARK: UI
     private func setupUI() {
-        amountTextField.placeholder = "Please enter amount to pay"
+        amountTextField.placeholder = R.string.localizable.amountTextFieldPlaceholder()
     }
 }
 
 // MARK: - STPApplePayContextDelegate
 extension ApplePayVС: STPApplePayContextDelegate {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: STPPaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
-        guard let amount = amountTextField.amount else { return ProgressHUD.show(error: "Amount is incorrect") }
+        guard let amount = amountTextField.amount else {
+            ProgressHUD.show(error: R.string.localizable.applePayAmountIsIncorrect())
+            return
+        }
         
         ServerNetworkManager().createSecret(forAmount: AmountConverter.amountToCents(amount)) {
             switch $0 {

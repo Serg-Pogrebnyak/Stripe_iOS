@@ -10,8 +10,13 @@
 "Yes" = "Yes";
 "No" = "No";
 "Delete" = "Delete";
+"amountTextFieldPlaceholder" = "Please enter amount to pay";
 
 "tabBar.creditCard" = "Credit Cards";
+
+//ApplePayVС
+"applePay.amountIsIncorrect" = "Amount is incorrect";
+"applePay.errorCreateRequest" = "Can't create a request to pay via apple pay";
 
 //CreditCardListVC
 "ccList.areYouSure" = "Are you sure?";
