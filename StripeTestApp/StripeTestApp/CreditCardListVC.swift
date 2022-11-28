@@ -13,7 +13,7 @@ final class CreditCardListVC: UIViewController {
     @IBOutlet private weak var creditCardsTableView: UITableView!
     
     // MARK: Variables
-    private var creditCards = [SavedCard]()
+    private var creditCards = [CreditCard]()
     
     private lazy var refreshControl: UIRefreshControl = {
         let view = UIRefreshControl()

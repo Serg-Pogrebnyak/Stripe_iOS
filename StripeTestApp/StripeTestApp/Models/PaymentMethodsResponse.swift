@@ -8,7 +8,7 @@
 import Foundation
 
 struct PaymentMethodsResponse: Decodable {
-    let creditCards: [SavedCard]
+    let creditCards: [CreditCard]
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -16,6 +16,6 @@ struct PaymentMethodsResponse: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        creditCards = try values.decode([SavedCard].self, forKey: .data)
+        creditCards = try values.decode([CreditCard].self, forKey: .data)
     }
 }

@@ -30,7 +30,7 @@
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
 		D0DE248D2931112F00553CB4 /* PaymentMethodsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248C2931112F00553CB4 /* PaymentMethodsProvider.swift */; };
-		D0DE248F2931114600553CB4 /* SavedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248E2931114600553CB4 /* SavedCard.swift */; };
+		D0DE248F2931114600553CB4 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248E2931114600553CB4 /* CreditCard.swift */; };
 		D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */; };
 		D0DE24932931127E00553CB4 /* CreditCardListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE24922931127E00553CB4 /* CreditCardListVC.swift */; };
 		D0DE2495293113C200553CB4 /* UIRefreshControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE2494293113C200553CB4 /* UIRefreshControlExtension.swift */; };
@@ -67,7 +67,7 @@
 		D0DE2485292FD61200553CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0DE248A292FD7AB00553CB4 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D0DE248C2931112F00553CB4 /* PaymentMethodsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsProvider.swift; sourceTree = "<group>"; };
-		D0DE248E2931114600553CB4 /* SavedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCard.swift; sourceTree = "<group>"; };
+		D0DE248E2931114600553CB4 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsResponse.swift; sourceTree = "<group>"; };
 		D0DE24922931127E00553CB4 /* CreditCardListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardListVC.swift; sourceTree = "<group>"; };
 		D0DE2494293113C200553CB4 /* UIRefreshControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlExtension.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				D0A795F3292F92B60007BB96 /* CustomerResponse.swift */,
 				D0A795F5292F92C50007BB96 /* PaymentIntent.swift */,
 				D0A795F7292FA4930007BB96 /* Constants.swift */,
-				D0DE248E2931114600553CB4 /* SavedCard.swift */,
+				D0DE248E2931114600553CB4 /* CreditCard.swift */,
 				D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */,
 			);
 			path = Models;
@@ -353,7 +353,7 @@
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0DE24932931127E00553CB4 /* CreditCardListVC.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
-				D0DE248F2931114600553CB4 /* SavedCard.swift in Sources */,
+				D0DE248F2931114600553CB4 /* CreditCard.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
 				D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */,

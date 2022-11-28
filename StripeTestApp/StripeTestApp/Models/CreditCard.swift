@@ -1,5 +1,5 @@
 //
-//  SavedCard.swift
+//  CreditCard.swift
 //  StripeTestApp
 //
 //  Created by Serhii on 25.11.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SavedCard {
+struct CreditCard {
     let id: String
     let brand: String
     let expMonth: Int
@@ -18,7 +18,7 @@ struct SavedCard {
 }
 
 // MARK: - Decodable
-extension SavedCard: Decodable {
+extension CreditCard: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case card
@@ -44,6 +44,6 @@ extension SavedCard: Decodable {
 }
 
 // MARK: - Equatable
-extension SavedCard: Equatable {
+extension CreditCard: Equatable {
     
 }

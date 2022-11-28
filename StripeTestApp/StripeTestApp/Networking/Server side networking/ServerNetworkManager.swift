@@ -41,7 +41,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
-    func getSavedCC(callback: @escaping (Result<[SavedCard]>) -> Void) {
+    func getSavedCC(callback: @escaping (Result<[CreditCard]>) -> Void) {
         getUsers {
             switch $0 {
             case .success(let customers):
@@ -63,9 +63,9 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
-    func detach(creditCard: SavedCard, callback: @escaping (Result<SavedCard>) -> Void) {
+    func detach(creditCard: CreditCard, callback: @escaping (Result<CreditCard>) -> Void) {
         ProviderManager().send(service: PaymentMethodsProvider.detach(creditCard.id),
-                               decodeType: SavedCard.self,
+                               decodeType: CreditCard.self,
                                callback: callback)
     }
     
