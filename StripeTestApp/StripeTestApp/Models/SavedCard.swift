@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SavedCard: Decodable {
+struct SavedCard {
     let id: String
     let brand: String
     let expMonth: Int
@@ -15,7 +15,10 @@ struct SavedCard: Decodable {
     let last4: String
     
     var description: String { "\(brand) \(expMonth)/\(expYear) \(last4)" }
-    
+}
+
+// MARK: - Decodable
+extension SavedCard: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case card
@@ -38,4 +41,9 @@ struct SavedCard: Decodable {
         expYear = try ccContainer.decode(Int.self, forKey: CodingKeys.CardCodingKeys.exp_year)
         last4 = try ccContainer.decode(String.self, forKey: CodingKeys.CardCodingKeys.last4)
     }
+}
+
+// MARK: - Equatable
+extension SavedCard: Equatable {
+    
 }
