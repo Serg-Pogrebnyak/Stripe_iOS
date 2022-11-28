@@ -8,6 +8,7 @@
 import Foundation
 
 struct SavedCard: Decodable {
+    let id: String
     let brand: String
     let expMonth: Int
     let expYear: Int
@@ -16,6 +17,7 @@ struct SavedCard: Decodable {
     var description: String { "\(brand) \(expMonth)/\(expYear) \(last4)" }
     
     enum CodingKeys: String, CodingKey {
+        case id
         case card
         
         enum CardCodingKeys: String, CodingKey {
@@ -28,6 +30,7 @@ struct SavedCard: Decodable {
     
     init(from decoder: Decoder) throws {
         let paymentMethodContainer = try decoder.container(keyedBy: CodingKeys.self)
+        id = try paymentMethodContainer.decode(String.self, forKey: .id)
         let ccContainer = try paymentMethodContainer.nestedContainer(keyedBy: CodingKeys.CardCodingKeys.self,
                                                                      forKey: .card)
         brand = try ccContainer.decode(String.self, forKey: CodingKeys.CardCodingKeys.brand)
