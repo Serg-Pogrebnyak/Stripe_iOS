@@ -12,7 +12,7 @@ import Stripe
 final class ApplePayVС: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var amountTextField: AmountTextField!
     @IBOutlet private weak var applePayButton: PKPaymentButton!
     
     // MARK: VC life cycle
@@ -25,11 +25,14 @@ final class ApplePayVС: UIViewController {
     // MARK: - Private functions
     // MARK: Action
     @IBAction private func didTapApplePayButton(_ sender: Any) {
-        guard let amount = Int(amountTextField.text ?? .init()) else { return ProgressHUD.show(error: "Amount is incorrect") }
+        guard   amountTextField.isValid,
+                let amount = amountTextField.amount else { return ProgressHUD.show(error: "Amount is incorrect") }
+        
         let paymentRequest = StripeAPI.paymentRequest(withMerchantIdentifier: Constants.merchantId,
                                                       country: "US",
                                                       currency: "USD")
-        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc", amount: NSDecimalNumber(value: amount))]
+        paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "iHats, Inc",
+                                                                   amount: NSDecimalNumber(value: amount))]
         if let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self) {
             applePayContext.presentApplePay(completion: nil)
         } else {
@@ -46,8 +49,9 @@ final class ApplePayVС: UIViewController {
 // MARK: - STPApplePayContextDelegate
 extension ApplePayVС: STPApplePayContextDelegate {
     func applePayContext(_ context: STPApplePayContext, didCreatePaymentMethod paymentMethod: STPPaymentMethod, paymentInformation: PKPayment, completion: @escaping STPIntentClientSecretCompletionBlock) {
-        let amount = Int(amountTextField.text ?? .init()) ?? .zero
-        ServerNetworkManager().createSecret(forAmount: amount) {
+        guard let amount = amountTextField.amount else { return ProgressHUD.show(error: "Amount is incorrect") }
+        
+        ServerNetworkManager().createSecret(forAmount: AmountConverter.amountToCents(amount)) {
             switch $0 {
             case .success(let secret):
                 completion(secret, nil)
