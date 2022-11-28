@@ -12,7 +12,7 @@ struct SCCModelFabric {
     private static let decimalSeparator: String = NumberFormatter().decimalSeparator
     
     // MARK: Public functions
-    static func amountWithOnlyTwoDigitsAfterDot() -> ShouldChangeCharacterModel {
+    static func amount(withCountDigitsAfterDot digitsAfterDot: Int) -> ShouldChangeCharacterModel {
         let shouldChangeFormatter = ShouldChangeCharacterModel  { (textInTextField, string, range) in
             //handle remove
             if string.isEmpty && range.length > .zero { return true }
@@ -25,7 +25,7 @@ struct SCCModelFabric {
             let isCorrectDecimalPart = containLessOrOneDigitsSeparator(text: textInTextField,
                                                                        newText: string,
                                                                        range: range,
-                                                                       mantissaLength: 2)
+                                                                       mantissaLength: digitsAfterDot)
             
             return isAllNumbersAndDecimalSeparator && isCorrectDecimalPart
         }

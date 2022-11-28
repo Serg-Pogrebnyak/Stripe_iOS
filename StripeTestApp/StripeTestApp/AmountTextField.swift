@@ -9,17 +9,18 @@ import UIKit
 
 final class AmountTextField: UITextField {
     
-    // MARK: Contants
-    private let shouldChangeCharacterModel = SCCModelFabric.amountWithOnlyTwoDigitsAfterDot()
-    
     // MARK: Variables
-    var isValid: Bool { shouldChangeCharacterModel.check(text ?? .init(), .init(), .init()) }
-    
-    private var _delegate: UITextFieldDelegate?
-    
     override var delegate: UITextFieldDelegate? {
         get { _delegate }
         set { _delegate = newValue }
+    }
+    
+    var digitsAfterDot = 2
+    var isValid: Bool { shouldChangeCharacterModel.check(text ?? .init(), .init(), .init()) }
+    
+    private var _delegate: UITextFieldDelegate?
+    private var shouldChangeCharacterModel: ShouldChangeCharacterModel {
+        SCCModelFabric.amount(withCountDigitsAfterDot: digitsAfterDot)
     }
     
     // MARK: Initializer
