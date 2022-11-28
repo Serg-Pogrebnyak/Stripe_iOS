@@ -18,6 +18,9 @@
 		D07234D82934D45A0002765C /* EmptyCreditCardListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07234D72934D45A0002765C /* EmptyCreditCardListView.xib */; };
 		D07234DA2934D46C0002765C /* EmptyCreditCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07234D92934D46C0002765C /* EmptyCreditCardListView.swift */; };
 		D07234DC2934D4AA0002765C /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07234DB2934D4AA0002765C /* NSObject+Ext.swift */; };
+		D07234DE2934DAF50002765C /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07234DD2934DAF50002765C /* AmountTextField.swift */; };
+		D07234E02934E4820002765C /* ShouldChangeCharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07234DF2934E4820002765C /* ShouldChangeCharacterModel.swift */; };
+		D07234E52934E4B20002765C /* SCCModelFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07234E42934E4B20002765C /* SCCModelFabric.swift */; };
 		D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E2292BC9010007BB96 /* ServerNetworkManager.swift */; };
 		D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E5292BCB280007BB96 /* URLRequestBuilder.swift */; };
 		D0A795E8292BD3250007BB96 /* ProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795E7292BD3250007BB96 /* ProviderManager.swift */; };
@@ -56,6 +59,9 @@
 		D07234D72934D45A0002765C /* EmptyCreditCardListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCreditCardListView.xib; sourceTree = "<group>"; };
 		D07234D92934D46C0002765C /* EmptyCreditCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCreditCardListView.swift; sourceTree = "<group>"; };
 		D07234DB2934D4AA0002765C /* NSObject+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
+		D07234DD2934DAF50002765C /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
+		D07234DF2934E4820002765C /* ShouldChangeCharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouldChangeCharacterModel.swift; sourceTree = "<group>"; };
+		D07234E42934E4B20002765C /* SCCModelFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCModelFabric.swift; sourceTree = "<group>"; };
 		D0A795E2292BC9010007BB96 /* ServerNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerNetworkManager.swift; sourceTree = "<group>"; };
 		D0A795E5292BCB280007BB96 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 		D0A795E7292BD3250007BB96 /* ProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderManager.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 		C5503A3A26BA82580002012B /* StripeTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				D07234E32934E49B0002765C /* Services & Fabrics */,
 				D07234D22934B0060002765C /* Extension */,
 				D0A795EE292F921C0007BB96 /* Models */,
 				D0A795DF292BC89D0007BB96 /* Networking */,
@@ -139,6 +146,7 @@
 				D0DE2494293113C200553CB4 /* UIRefreshControlExtension.swift */,
 				D07234D72934D45A0002765C /* EmptyCreditCardListView.xib */,
 				D07234D92934D46C0002765C /* EmptyCreditCardListView.swift */,
+				D07234DD2934DAF50002765C /* AmountTextField.swift */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -151,6 +159,14 @@
 				D07234DB2934D4AA0002765C /* NSObject+Ext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D07234E32934E49B0002765C /* Services & Fabrics */ = {
+			isa = PBXGroup;
+			children = (
+				D07234E42934E4B20002765C /* SCCModelFabric.swift */,
+			);
+			path = "Services & Fabrics";
 			sourceTree = "<group>";
 		};
 		D0A795DF292BC89D0007BB96 /* Networking */ = {
@@ -200,6 +216,7 @@
 				D0A795F7292FA4930007BB96 /* Constants.swift */,
 				D0DE248E2931114600553CB4 /* CreditCard.swift */,
 				D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */,
+				D07234DF2934E4820002765C /* ShouldChangeCharacterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,17 +372,20 @@
 				D0A795ED292F846A0007BB96 /* PaymentIntentProvider.swift in Sources */,
 				D0A795F6292F92C50007BB96 /* PaymentIntent.swift in Sources */,
 				C5503A4026BA82580002012B /* ViewController.swift in Sources */,
+				D07234DE2934DAF50002765C /* AmountTextField.swift in Sources */,
 				D07234D62934B02E0002765C /* UIViewController+Ext.swift in Sources */,
 				D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */,
 				D07234DA2934D46C0002765C /* EmptyCreditCardListView.swift in Sources */,
 				D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */,
 				C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */,
 				D07234D42934B01B0002765C /* UIAlertAction+Ext.swift in Sources */,
+				D07234E52934E4B20002765C /* SCCModelFabric.swift in Sources */,
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0DE24932931127E00553CB4 /* CreditCardListVC.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
 				D0DE248F2931114600553CB4 /* CreditCard.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,
+				D07234E02934E4820002765C /* ShouldChangeCharacterModel.swift in Sources */,
 				D0A795F0292F923B0007BB96 /* Customer.swift in Sources */,
 				D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */,
 				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,

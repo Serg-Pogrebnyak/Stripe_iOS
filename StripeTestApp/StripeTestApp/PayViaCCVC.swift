@@ -12,7 +12,7 @@ import SnapKit
 final class PayViaCCVC: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet private weak var amountTextField: UITextField!
+    @IBOutlet private weak var amountTextField: AmountTextField!
     @IBOutlet private weak var creditCardTextField: STPPaymentCardTextField!
     @IBOutlet private weak var saveForFuturePaymentsSwitch: UISwitch!
     @IBOutlet private weak var payButton: UIButton!
