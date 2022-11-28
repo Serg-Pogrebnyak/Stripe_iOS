@@ -111,7 +111,8 @@ final class CreditCardListVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension CreditCardListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        creditCards.count
+        tableView.backgroundView = creditCards.isEmpty ? EmptyCreditCardListView() : nil
+        return creditCards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

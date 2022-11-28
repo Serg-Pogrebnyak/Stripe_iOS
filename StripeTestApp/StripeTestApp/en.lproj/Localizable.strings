@@ -17,3 +17,6 @@
 "ccList.areYouSure" = "Are you sure?";
 "ccList.confirmToDeleteAction" = "Tap yes if you confirm delete action";
 "ccList.removedCardNotFound" = "Removed credit card not found, refresh payment methods and try again";
+
+//EmptyCreditCardListView
+"emptyCCView.description" = "No saved credit cards for future payments";
