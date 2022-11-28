@@ -10,10 +10,6 @@ import Foundation
 struct SCCModelFabric {
     
     private static let decimalSeparator: String = NumberFormatter().decimalSeparator
-    private static let numbers = "0123456789"
-    private static var numbersWithDecimalSeparator: String {
-        return numbers + decimalSeparator
-    }
     
     // MARK: Public functions
     static func amountWithOnlyTwoDigitsAfterDot() -> ShouldChangeCharacterModel {
@@ -23,7 +19,7 @@ struct SCCModelFabric {
             
             //check if user print only number
             let isAllNumbersAndDecimalSeparator = containOnly(text: string,
-                                                              stringComponents: numbersWithDecimalSeparator)
+                                                              characterSet: .decimalDigitsWithSeparator)
             
             //check decimal separator is inputed and it count and if yes check mantissa length
             let isCorrectDecimalPart = containLessOrOneDigitsSeparator(text: textInTextField,
@@ -38,11 +34,8 @@ struct SCCModelFabric {
     }
     
     // MARK: Private functions
-    private static func containOnly(text: String, stringComponents: String) -> Bool {
-        let aSet = NSCharacterSet(charactersIn: stringComponents).inverted
-        let compSepByCharInSet = text.components(separatedBy: aSet)
-        let numberFiltered = compSepByCharInSet.joined(separator: .init())
-        return text == numberFiltered
+    private static func containOnly(text: String, characterSet: CharacterSet) -> Bool {
+        text == text.components(separatedBy: characterSet.inverted).joined(separator: .init())
     }
     
     private static func containLessOrOneDigitsSeparator(text: String, newText: String, range: NSRange, mantissaLength: Int? = nil) -> Bool {
