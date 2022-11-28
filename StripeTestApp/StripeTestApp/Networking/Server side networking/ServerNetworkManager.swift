@@ -63,6 +63,12 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
+    func detach(creditCard: SavedCard, callback: @escaping (Result<SavedCard>) -> Void) {
+        ProviderManager().send(service: PaymentMethodsProvider.detach(creditCard.id),
+                               decodeType: SavedCard.self,
+                               callback: callback)
+    }
+    
     // MARK: Customers
     private func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers, decodeType: CustomerResponse.self) { result in

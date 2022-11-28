@@ -82,16 +82,29 @@ final class CreditCardListVC: UIViewController {
     }
     
     private func deleteCC(at indexPath: IndexPath, withTrailingActionCallback callback: @escaping (Bool) -> Void) {
-        ProgressHUD.show()
-//        success flow
-//        ProgressHUD.hide()
-//        creditCards.remove(at: indexPath.row)
-//        paymentMethodsTableView.deleteRows(at: [indexPath], with: .automatic)
-//        callback(true)
+        guard creditCards.indices.contains(indexPath.row) else { return }
         
-//        failure flow
-//        ProgressHUD.hide()
-//        callback(false)
+        ProgressHUD.show()
+        ServerNetworkManager().detach(creditCard: creditCards[indexPath.row]) { [weak self] result in
+            ProgressHUD.hide()
+            guard let strongSelf = self else { return }
+            
+            switch result {
+            case .success(let removedCreditCard):
+                if let removedCCIndex = strongSelf.creditCards.firstIndex(of: removedCreditCard) {
+                    strongSelf.creditCards.remove(at: removedCCIndex)
+                    strongSelf.paymentMethodsTableView.deleteRows(at: [.init(row: removedCCIndex, section: .zero)],
+                                                                  with: .automatic)
+                    callback(true)
+                } else {
+                    ProgressHUD.show(error: R.string.localizable.ccListRemovedCardNotFound())
+                    callback(false)
+                }
+            case .failure(let error):
+                ProgressHUD.show(error: error.localizedDescription)
+                callback(false)
+            }
+        }
     }
 }
 

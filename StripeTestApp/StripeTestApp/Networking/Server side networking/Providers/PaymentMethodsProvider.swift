@@ -9,11 +9,14 @@ import Alamofire
 
 enum PaymentMethodsProvider: URLRequestBuilder {
     case saved(String)
+    case detach(String)
     
     var path: String {
         switch self {
         case .saved:
             return "payment_methods"
+        case .detach(let id):
+            return "payment_methods/\(id)/detach"
         }
     }
     
@@ -21,6 +24,8 @@ enum PaymentMethodsProvider: URLRequestBuilder {
         switch self {
         case .saved:
             return .get
+        case .detach:
+            return .post
         }
     }
     
@@ -29,6 +34,8 @@ enum PaymentMethodsProvider: URLRequestBuilder {
         case .saved(let customerId):
             return ["customer": customerId,
                     "type": "card"]
+        case .detach:
+            return nil
         }
     }
 }
