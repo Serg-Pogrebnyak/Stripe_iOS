@@ -63,6 +63,25 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
+    func payViaSavedCC(amount: Int, creditCard: CreditCard, callback: @escaping (Result<PayViaSavedCCResponse>) -> Void) {
+        getUsers {
+            switch $0 {
+            case .success(let customers):
+                guard let customer = customers.first else {
+                    return callback(.failure(ServerNetworkManagerError.usersListEmpty))
+                }
+                let paymentIntentModel = CreatePaymentIntentModel(amount: amount, customer: customer)
+                let service = PaymentIntentProvider.createFromSaved(paymentIntentModel,
+                                                                    creditCard)
+                ProviderManager().send(service: service,
+                                       decodeType: PayViaSavedCCResponse.self,
+                                       callback: callback)
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+    
     func detach(creditCard: CreditCard, callback: @escaping (Result<CreditCard>) -> Void) {
         ProviderManager().send(service: PaymentMethodsProvider.detach(creditCard.id),
                                decodeType: CreditCard.self,
