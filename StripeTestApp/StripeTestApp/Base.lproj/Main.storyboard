@@ -125,26 +125,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MwW-Hf-22t">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Be7-dl-2OV">
                                 <rect key="frame" x="0.0" y="48" width="414" height="765"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="npI-qk-1Ul" id="AfW-2i-t5w"/>
-                                    <outlet property="delegate" destination="npI-qk-1Ul" id="Cun-xX-ERc"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spk-3t-wo6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEW-wv-QVU">
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="110"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AWe-o1-vkb">
+                                                <rect key="frame" x="62" y="0.0" width="290" height="110"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E6z-vE-WJF" customClass="AmountTextField" customModule="StripeTestApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="83"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyf-f3-snf">
+                                                        <rect key="frame" x="0.0" y="93" width="290" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-Cn-cXB">
+                                                <rect key="frame" x="352" y="0.0" width="62" height="110"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="6gb-Cn-cXB" firstAttribute="width" secondItem="ZEW-wv-QVU" secondAttribute="width" id="Qa4-ON-goV"/>
+                                            <constraint firstItem="AWe-o1-vkb" firstAttribute="width" secondItem="Spk-3t-wo6" secondAttribute="width" multiplier="0.7" id="Wp0-lq-FOq"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MwW-Hf-22t">
+                                        <rect key="frame" x="0.0" y="140" width="414" height="625"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="npI-qk-1Ul" id="AfW-2i-t5w"/>
+                                            <outlet property="delegate" destination="npI-qk-1Ul" id="Cun-xX-ERc"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KaZ-hV-CF9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MwW-Hf-22t" firstAttribute="trailing" secondItem="KaZ-hV-CF9" secondAttribute="trailing" id="1Nm-Iu-GYV"/>
-                            <constraint firstItem="MwW-Hf-22t" firstAttribute="leading" secondItem="KaZ-hV-CF9" secondAttribute="leading" id="dle-ep-eoc"/>
-                            <constraint firstItem="MwW-Hf-22t" firstAttribute="top" secondItem="KaZ-hV-CF9" secondAttribute="top" id="g7B-7U-Zay"/>
-                            <constraint firstItem="KaZ-hV-CF9" firstAttribute="bottom" secondItem="MwW-Hf-22t" secondAttribute="bottom" id="tMr-5t-Yij"/>
+                            <constraint firstItem="Be7-dl-2OV" firstAttribute="bottom" secondItem="KaZ-hV-CF9" secondAttribute="bottom" id="321-cv-gm6"/>
+                            <constraint firstItem="Be7-dl-2OV" firstAttribute="top" secondItem="KaZ-hV-CF9" secondAttribute="top" id="R9Z-eO-h8I"/>
+                            <constraint firstItem="Be7-dl-2OV" firstAttribute="leading" secondItem="KaZ-hV-CF9" secondAttribute="leading" id="REi-vK-apQ"/>
+                            <constraint firstItem="Be7-dl-2OV" firstAttribute="trailing" secondItem="KaZ-hV-CF9" secondAttribute="trailing" id="hMx-BC-Cha"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fNQ-6L-mJL"/>
                     <connections>
+                        <outlet property="amountDescriptionLabel" destination="yyf-f3-snf" id="3Ca-Uu-UJg"/>
+                        <outlet property="amountTextField" destination="E6z-vE-WJF" id="szU-u9-nvf"/>
                         <outlet property="creditCardsTableView" destination="MwW-Hf-22t" id="PSx-kw-d0i"/>
                     </connections>
                 </viewController>

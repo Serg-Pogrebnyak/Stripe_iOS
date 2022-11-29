@@ -10,6 +10,8 @@ import UIKit
 final class CreditCardListVC: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet private weak var amountTextField: AmountTextField!
+    @IBOutlet private weak var amountDescriptionLabel: UILabel!
     @IBOutlet private weak var creditCardsTableView: UITableView!
     
     // MARK: Variables
@@ -46,6 +48,8 @@ final class CreditCardListVC: UIViewController {
     
     // MARK: UI
     private func setupUI() {
+        amountTextField.placeholder = R.string.localizable.amountTextFieldPlaceholder()
+        amountDescriptionLabel.text = R.string.localizable.ccListTextFieldDescriptionLabel()
         creditCardsTableView.refreshControl = refreshControl
     }
     
@@ -106,6 +110,18 @@ final class CreditCardListVC: UIViewController {
             }
         }
     }
+    
+    private func makeNewPaymentFromSavedCC(byIndex indexPath: IndexPath) {
+        guard   amountTextField.isValid,
+                creditCards.indices.contains(indexPath.row),
+                let amount = amountTextField.amount
+        else {
+            ProgressHUD.show(error: R.string.localizable.applePayAmountIsIncorrect())
+            return
+        }
+        
+        print("🔥 makeNewPaymentFromSavedCC", amount, creditCards[indexPath.row])
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -124,6 +140,11 @@ extension CreditCardListVC: UITableViewDataSource {
 }
 
 extension CreditCardListVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        makeNewPaymentFromSavedCC(byIndex: indexPath)
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: R.string.localizable.delete()) { [weak self] (_, _, completionHandler) in

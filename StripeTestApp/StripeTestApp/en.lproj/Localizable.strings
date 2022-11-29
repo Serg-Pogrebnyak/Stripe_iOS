@@ -19,6 +19,7 @@
 "applePay.errorCreateRequest" = "Can't create a request to pay via apple pay";
 
 //CreditCardListVC
+"ccList.textFieldDescriptionLabel" = "Enter the amount and tap on the CC by which you want to pay";
 "ccList.areYouSure" = "Are you sure?";
 "ccList.confirmToDeleteAction" = "Tap yes if you confirm delete action";
 "ccList.removedCardNotFound" = "Removed credit card not found, refresh payment methods and try again";
