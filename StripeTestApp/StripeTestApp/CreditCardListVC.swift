@@ -126,8 +126,7 @@ final class CreditCardListVC: UIViewController {
         {
             switch $0 {
             case .success(let responseModel):
-                let successText = "Payment succeeded with status: \(responseModel.status)! \n Order Amount: \(responseModel.amount)\(responseModel.currency) \n Customer id: \(responseModel.customerId)"
-                ProgressHUD.show(success: successText)
+                ProgressHUD.show(success: responseModel.description)
             case .failure(let error):
                 ProgressHUD.show(error: error.localizedDescription)
             }

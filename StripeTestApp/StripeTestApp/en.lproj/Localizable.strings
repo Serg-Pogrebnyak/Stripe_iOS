@@ -11,6 +11,10 @@
 "No" = "No";
 "Delete" = "Delete";
 "amountTextFieldPlaceholder" = "Please enter amount to pay";
+"paymentSucceeded" = "Payment succeeded!";
+"paymentSucceededWithStatus" = "Payment succeeded with status:";
+"orderAmount" = "Order Amount:";
+"customerId" = "Customer id:";
 
 "tabBar.creditCard" = "Credit Cards";
 

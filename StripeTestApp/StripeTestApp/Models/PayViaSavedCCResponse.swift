@@ -13,6 +13,12 @@ struct PayViaSavedCCResponse: Decodable {
     let customerId: String
     let status: String
     
+    var description: String {
+        R.string.localizable.paymentSucceededWithStatus() + status + "\n" +
+        R.string.localizable.orderAmount() + amount.description + currency + "\n" +
+        R.string.localizable.customerId() + customerId
+    }
+    
     enum CodingKeys: String, CodingKey {
         case amount
         case currency
