@@ -88,6 +88,12 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                                callback: callback)
     }
     
+    func getPayments(pagination: PaymentIntentPaginationType, callback: @escaping (Result<PaymentIntentsResponse>) -> Void) {
+        ProviderManager().send(service: PaymentIntentProvider.getAll(pagination),
+                               decodeType: PaymentIntentsResponse.self,
+                               callback: callback)
+    }
+    
     // MARK: Customers
     private func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers, decodeType: CustomerResponse.self) { result in

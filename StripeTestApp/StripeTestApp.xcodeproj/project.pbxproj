@@ -35,6 +35,7 @@
 		D0A795F8292FA4930007BB96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F7292FA4930007BB96 /* Constants.swift */; };
 		D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */; };
 		D0C25B35293792CB00AD4A54 /* PaymentIntentPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B34293792CB00AD4A54 /* PaymentIntentPagination.swift */; };
+		D0C25B372937ACC100AD4A54 /* PaymentIntentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B362937ACC100AD4A54 /* PaymentIntentsResponse.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
@@ -79,6 +80,7 @@
 		D0A795F7292FA4930007BB96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0A795F9292FBDD20007BB96 /* PayViaCCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViaCCVC.swift; sourceTree = "<group>"; };
 		D0C25B34293792CB00AD4A54 /* PaymentIntentPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntentPagination.swift; sourceTree = "<group>"; };
+		D0C25B362937ACC100AD4A54 /* PaymentIntentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntentsResponse.swift; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				D0DE24902931115300553CB4 /* PaymentMethodsResponse.swift */,
 				D07234DF2934E4820002765C /* ShouldChangeCharacterModel.swift */,
 				D0C25B34293792CB00AD4A54 /* PaymentIntentPagination.swift */,
+				D0C25B362937ACC100AD4A54 /* PaymentIntentsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D07234DE2934DAF50002765C /* AmountTextField.swift in Sources */,
 				D07234D62934B02E0002765C /* UIViewController+Ext.swift in Sources */,
 				D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */,
+				D0C25B372937ACC100AD4A54 /* PaymentIntentsResponse.swift in Sources */,
 				D07234DA2934D46C0002765C /* EmptyCreditCardListView.swift in Sources */,
 				D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */,
 				C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */,

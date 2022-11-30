@@ -8,11 +8,18 @@
 import Alamofire
 
 enum PaymentIntentProvider: URLRequestBuilder {
+    case getAll(PaymentIntentPaginationType)
     case create(CreatePaymentIntentType)
     case createFromSaved(CreatePaymentIntentType, CreditCard)
     
     var path: String {
         switch self {
+        case .getAll(let pagination):
+            var path = "payment_intents?limit=\(pagination.limit)"
+            if let lastLoadedId = pagination.lastLoadedId {
+                path += "&starting_after=\(lastLoadedId)"
+            }
+            return path
         case .create, .createFromSaved:
             return "payment_intents"
         }
@@ -20,6 +27,8 @@ enum PaymentIntentProvider: URLRequestBuilder {
     
     var method: HTTPMethod {
         switch self {
+        case .getAll:
+            return .get
         case .create, .createFromSaved:
             return .post
         }
@@ -27,6 +36,8 @@ enum PaymentIntentProvider: URLRequestBuilder {
     
     var parameters: Parameters? {
         switch self {
+        case .getAll:
+            return nil
         case .create(let paymentIntentModel):
             return ["amount": paymentIntentModel.amount,
                     "customer": paymentIntentModel.customer.id,
