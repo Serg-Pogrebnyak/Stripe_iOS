@@ -63,7 +63,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
-    func payViaSavedCC(amount: Int, creditCard: CreditCard, callback: @escaping (Result<PayViaSavedCCResponse>) -> Void) {
+    func payViaSavedCC(amount: Int, creditCard: CreditCard, callback: @escaping (Result<PaymentIntent>) -> Void) {
         getUsers {
             switch $0 {
             case .success(let customers):
@@ -74,7 +74,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                 let service = PaymentIntentProvider.createFromSaved(paymentIntentModel,
                                                                     creditCard)
                 ProviderManager().send(service: service,
-                                       decodeType: PayViaSavedCCResponse.self,
+                                       decodeType: PaymentIntent.self,
                                        callback: callback)
             case .failure(let error):
                 callback(.failure(error))
