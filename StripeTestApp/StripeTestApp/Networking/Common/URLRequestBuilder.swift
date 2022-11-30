@@ -31,9 +31,9 @@ extension URLRequestBuilder {
     var parameters: Parameters? { return nil }
     
     func asURLRequest() throws -> URLRequest {
-        let url = try baseURL.asURL()
+        let url = try (baseURL + path).asURL()
         
-        var request = URLRequest(url: url.appendingPathComponent(path))
+        var request = URLRequest(url: url)
         request.method = method
         request.allHTTPHeaderFields = headers?.dictionary
         let encoding = URLEncoding.default
