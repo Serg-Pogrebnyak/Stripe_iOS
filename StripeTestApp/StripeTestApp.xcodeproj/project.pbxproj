@@ -39,6 +39,8 @@
 		D0C25B392937ADC800AD4A54 /* PaymentIntentsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B382937ADC800AD4A54 /* PaymentIntentsListVC.swift */; };
 		D0C25B3B2938C23F00AD4A54 /* EmptyPaymentsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0C25B3A2938C23F00AD4A54 /* EmptyPaymentsListView.xib */; };
 		D0C25B3D2938C36300AD4A54 /* EmptyPaymentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B3C2938C36300AD4A54 /* EmptyPaymentsListView.swift */; };
+		D0C25B3F2938ECC100AD4A54 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B3E2938ECC100AD4A54 /* Dictionary+Ext.swift */; };
+		D0C25B412938ECE500AD4A54 /* Parameters+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B402938ECE500AD4A54 /* Parameters+Ext.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
@@ -87,6 +89,8 @@
 		D0C25B382937ADC800AD4A54 /* PaymentIntentsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntentsListVC.swift; sourceTree = "<group>"; };
 		D0C25B3A2938C23F00AD4A54 /* EmptyPaymentsListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPaymentsListView.xib; sourceTree = "<group>"; };
 		D0C25B3C2938C36300AD4A54 /* EmptyPaymentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPaymentsListView.swift; sourceTree = "<group>"; };
+		D0C25B3E2938ECC100AD4A54 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
+		D0C25B402938ECE500AD4A54 /* Parameters+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+Ext.swift"; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				D07234D52934B02E0002765C /* UIViewController+Ext.swift */,
 				D07234DB2934D4AA0002765C /* NSObject+Ext.swift */,
 				D07234E62934EDE10002765C /* CharacterSet+Ext.swift */,
+				D0C25B3E2938ECC100AD4A54 /* Dictionary+Ext.swift */,
+				D0C25B402938ECE500AD4A54 /* Parameters+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				D07234D62934B02E0002765C /* UIViewController+Ext.swift in Sources */,
 				D0A795E6292BCB280007BB96 /* URLRequestBuilder.swift in Sources */,
 				D0C25B372937ACC100AD4A54 /* PaymentIntentsResponse.swift in Sources */,
+				D0C25B3F2938ECC100AD4A54 /* Dictionary+Ext.swift in Sources */,
 				D07234DA2934D46C0002765C /* EmptyCreditCardListView.swift in Sources */,
 				D0A795E3292BC9010007BB96 /* ServerNetworkManager.swift in Sources */,
 				C5503A5026BAECF70002012B /* ApplePayVС.swift in Sources */,
@@ -419,6 +426,7 @@
 				D0A795FA292FBDD20007BB96 /* PayViaCCVC.swift in Sources */,
 				D0DE248D2931112F00553CB4 /* PaymentMethodsProvider.swift in Sources */,
 				C5503A3C26BA82580002012B /* AppDelegate.swift in Sources */,
+				D0C25B412938ECE500AD4A54 /* Parameters+Ext.swift in Sources */,
 				D07234DC2934D4AA0002765C /* NSObject+Ext.swift in Sources */,
 				D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,

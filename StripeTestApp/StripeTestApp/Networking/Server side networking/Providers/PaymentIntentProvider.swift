@@ -14,14 +14,18 @@ enum PaymentIntentProvider: URLRequestBuilder {
     
     var path: String {
         switch self {
-        case .getAll(let pagination):
-            var path = "payment_intents?limit=\(pagination.limit)"
-            if let lastLoadedId = pagination.lastLoadedId {
-                path += "&starting_after=\(lastLoadedId)"
-            }
-            return path
-        case .create, .createFromSaved:
+        case .getAll, .create, .createFromSaved:
             return "payment_intents"
+        }
+    }
+    
+    var pathParameters: Parameters {
+        switch self {
+        case .getAll(let pagination):
+            return ["limit": pagination.limit,
+                    "starting_after": pagination.lastLoadedId].removeNil()
+        case .create, .createFromSaved:
+            return .init()
         }
     }
     
