@@ -8,7 +8,7 @@
 import Alamofire
 
 enum PaymentIntentProvider: URLRequestBuilder {
-    case getAll(PaymentIntentPaginationType)
+    case getAll(PaginationType)
     case create(CreatePaymentIntentType)
     case createFromSaved(CreatePaymentIntentType, CreditCard)
     

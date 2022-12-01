@@ -17,7 +17,7 @@ final class PaymentIntentsListVC: UIViewController {
     
     // MARK: Variables
     private var paymentIntents = [PaymentIntent]()
-    private var pagination: PaymentIntentPaginationType = PaymentIntentPagination()
+    private var pagination: PaginationType = Pagination()
     
     private lazy var refreshControl: UIRefreshControl = {
         let view = UIRefreshControl()
@@ -42,7 +42,7 @@ final class PaymentIntentsListVC: UIViewController {
     // MARK: - Private functions
     // MARK: Action
     @objc private func draggingRefreshControl() {
-        pagination = PaymentIntentPagination()
+        pagination = Pagination()
         paymentIntents.removeAll()
         paymentIntentTableView.reloadData()
         fetchPaymentIntents()

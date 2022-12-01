@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol PaymentIntentPaginationType {
+protocol PaginationType {
     var limit: Int { get }
     var canLoadMore: Bool { get }
     var lastLoadedId: String? { get }
 }
 
-struct PaymentIntentPagination: PaymentIntentPaginationType {
+struct Pagination: PaginationType {
     let limit = 20
     let lastLoadedId: String?
     let canLoadMore: Bool

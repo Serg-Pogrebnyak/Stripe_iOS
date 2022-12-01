@@ -91,7 +91,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                                callback: callback)
     }
     
-    func getPayments(pagination: PaymentIntentPaginationType, callback: @escaping (Result<PaymentIntentsResponse>) -> Void) {
+    func getPayments(pagination: PaginationType, callback: @escaping (Result<PaymentIntentsResponse>) -> Void) {
         getPaymentsRequest?.cancel()
         getPaymentsRequest = ProviderManager().send(service: PaymentIntentProvider.getAll(pagination),
                                                     decodeType: PaymentIntentsResponse.self,
