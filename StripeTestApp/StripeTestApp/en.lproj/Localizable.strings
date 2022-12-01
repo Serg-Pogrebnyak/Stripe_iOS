@@ -30,3 +30,6 @@
 
 //EmptyCreditCardListView
 "emptyCCView.description" = "No saved credit cards for future payments";
+
+//EmptyPaymentsListView
+"noPaymentsView.description" = "No payments found";
