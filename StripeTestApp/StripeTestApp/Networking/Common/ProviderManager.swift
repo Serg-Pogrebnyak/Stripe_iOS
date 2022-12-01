@@ -31,17 +31,18 @@ final class ProviderManager<T: URLRequestBuilder> {
     private lazy var networkRechability = NetworkReachabilityManager()
     private var isConnectedToInternet:Bool { networkRechability?.isReachable ?? true }
     
-    func send<U: Decodable>(service: T, decodeType: U.Type, callback: @escaping (Result<U>) -> Void) {
+    @discardableResult
+    func send<U: Decodable>(service: T, decodeType: U.Type, callback: @escaping (Result<U>) -> Void) -> DataRequest? {
         guard isConnectedToInternet else {
             callback(.failure(ProviderManagerError.noInternetConnection))
-            return
+            return nil
         }
         guard let urlRequest = service.urlRequest else {
             callback(.failure(ProviderManagerError.cantConvertToURLRequest))
-            return
+            return nil
         }
         
-        AF.request(urlRequest).responseDecodable(of: U.self) { response in
+        return AF.request(urlRequest).responseDecodable(of: U.self) { response in
             switch response.result {
             case .success(let model):
                 callback(.success(model))

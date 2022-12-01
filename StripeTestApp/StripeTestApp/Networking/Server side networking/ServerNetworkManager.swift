@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 //TODO: Just remove this in future
 public enum ServerNetworkManagerError: LocalizedError {
@@ -24,6 +25,8 @@ protocol ServerNetworkManagerType {
 }
 
 final class ServerNetworkManager: ServerNetworkManagerType {
+    
+    private var getPaymentsRequest: DataRequest?
     
     func createSecret(forAmount amount: Int, callback: @escaping (Result<String>) -> Void) {
         getUsers {
@@ -89,9 +92,10 @@ final class ServerNetworkManager: ServerNetworkManagerType {
     }
     
     func getPayments(pagination: PaymentIntentPaginationType, callback: @escaping (Result<PaymentIntentsResponse>) -> Void) {
-        ProviderManager().send(service: PaymentIntentProvider.getAll(pagination),
-                               decodeType: PaymentIntentsResponse.self,
-                               callback: callback)
+        getPaymentsRequest?.cancel()
+        getPaymentsRequest = ProviderManager().send(service: PaymentIntentProvider.getAll(pagination),
+                                                    decodeType: PaymentIntentsResponse.self,
+                                                    callback: callback)
     }
     
     // MARK: Customers
