@@ -192,6 +192,41 @@
             </objects>
             <point key="canvasLocation" x="-52.173913043478265" y="-1269.6428571428571"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="sDV-k6-Hpk">
+            <objects>
+                <viewController id="rWA-Ea-shf" customClass="PaymentIntentsListVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YyW-DT-Fps">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GdI-AF-htI">
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rWA-Ea-shf" id="avm-RG-TrV"/>
+                                    <outlet property="delegate" destination="rWA-Ea-shf" id="PKg-k2-u9C"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jkw-EB-YwU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GdI-AF-htI" firstAttribute="bottom" secondItem="Jkw-EB-YwU" secondAttribute="bottom" id="IkQ-C7-qBH"/>
+                            <constraint firstAttribute="trailing" secondItem="GdI-AF-htI" secondAttribute="trailing" id="L2a-SA-m37"/>
+                            <constraint firstItem="GdI-AF-htI" firstAttribute="leading" secondItem="Jkw-EB-YwU" secondAttribute="leading" id="SET-gC-LqL"/>
+                            <constraint firstItem="GdI-AF-htI" firstAttribute="top" secondItem="Jkw-EB-YwU" secondAttribute="top" id="j7f-pN-l3x"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="fNV-GU-56t"/>
+                    <connections>
+                        <outlet property="paymentIntentTableView" destination="GdI-AF-htI" id="wpD-OJ-I1G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tqg-0b-txZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52.173913043478265" y="-1960.0446428571427"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zjF-5z-lZZ">
             <objects>
@@ -205,6 +240,7 @@
                         <segue destination="YGt-K1-IK3" kind="relationship" relationship="viewControllers" id="6vH-oj-qRB"/>
                         <segue destination="pVz-H0-VQF" kind="relationship" relationship="viewControllers" id="rSU-Wz-XNM"/>
                         <segue destination="npI-qk-1Ul" kind="relationship" relationship="viewControllers" id="bUe-GZ-YxB"/>
+                        <segue destination="rWA-Ea-shf" kind="relationship" relationship="viewControllers" id="OAF-7j-DNc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzC-Tb-er9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
