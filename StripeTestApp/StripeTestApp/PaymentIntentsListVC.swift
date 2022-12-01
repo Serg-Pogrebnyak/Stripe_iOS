@@ -82,7 +82,7 @@ extension PaymentIntentsListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard paymentIntents.indices.contains(indexPath.row) else { return .init() }
         let cell = UITableViewCell()
-        cell.textLabel?.text = paymentIntents[indexPath.row].paymentDescription
+        cell.textLabel?.text = paymentIntents[indexPath.row].description
         return cell
     }
 }
@@ -96,8 +96,9 @@ extension PaymentIntentsListVC: UITableViewDelegate {
     }
 }
 
+// MARK: - PaymentIntent Extension
 fileprivate extension PaymentIntent {
-    var paymentDescription: String {
+    var description: String {
         "\(amount.description)\(currency) \(id)"
     }
 }

@@ -165,3 +165,12 @@ extension CreditCardListVC: UITableViewDelegate {
         return .init(actions: [deleteAction])
     }
 }
+
+// MARK: - PaymentIntent Extension
+fileprivate extension PaymentIntent {
+    var description: String {
+        R.string.localizable.paymentSucceededWithStatus() + status + "\n" +
+        R.string.localizable.orderAmount() + amount.description + currency + "\n" +
+        R.string.localizable.customerId() + customerId
+    }
+}
