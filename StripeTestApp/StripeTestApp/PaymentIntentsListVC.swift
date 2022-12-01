@@ -76,6 +76,7 @@ final class PaymentIntentsListVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension PaymentIntentsListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.backgroundView = paymentIntents.isEmpty ? EmptyPaymentsListView() : nil
         return paymentIntents.count
     }
     
