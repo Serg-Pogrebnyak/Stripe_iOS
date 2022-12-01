@@ -14,7 +14,7 @@ protocol PaymentIntentPaginationType {
 }
 
 struct PaymentIntentPagination: PaymentIntentPaginationType {
-    let limit = 5
+    let limit = 20
     let lastLoadedId: String?
     let canLoadMore: Bool
     

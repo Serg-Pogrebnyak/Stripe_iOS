@@ -42,6 +42,7 @@ final class PaymentIntentsListVC: UIViewController {
     // MARK: - Private functions
     // MARK: Action
     @objc private func draggingRefreshControl() {
+        pagination = PaymentIntentPagination()
         paymentIntents.removeAll()
         paymentIntentTableView.reloadData()
         fetchPaymentIntents()
