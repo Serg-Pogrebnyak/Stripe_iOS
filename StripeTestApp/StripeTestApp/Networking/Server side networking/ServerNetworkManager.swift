@@ -98,6 +98,12 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                                                     callback: callback)
     }
     
+    func getCustomers(pagination: PaginationType, callback: @escaping (Result<CustomerResponse>) -> Void)  {
+        ProviderManager().send(service: CustomerProvider.customers,
+                               decodeType: CustomerResponse.self,
+                               callback: callback)
+    }
+    
     // MARK: Customers
     private func getUsers(_ callback: @escaping (Result<[Customer]>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers, decodeType: CustomerResponse.self) { result in
