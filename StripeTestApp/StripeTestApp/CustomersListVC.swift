@@ -77,6 +77,7 @@ final class CustomersListVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension CustomersListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.backgroundView = customers.isEmpty ? EmptyCustomersListView() : nil
         return customers.count
     }
     
