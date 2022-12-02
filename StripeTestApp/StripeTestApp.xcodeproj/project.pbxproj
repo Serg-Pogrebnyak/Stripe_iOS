@@ -41,6 +41,7 @@
 		D0C25B3D2938C36300AD4A54 /* EmptyPaymentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B3C2938C36300AD4A54 /* EmptyPaymentsListView.swift */; };
 		D0C25B3F2938ECC100AD4A54 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B3E2938ECC100AD4A54 /* Dictionary+Ext.swift */; };
 		D0C25B412938ECE500AD4A54 /* Parameters+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B402938ECE500AD4A54 /* Parameters+Ext.swift */; };
+		D0C25B432938FB5300AD4A54 /* CustomersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
@@ -91,6 +92,7 @@
 		D0C25B3C2938C36300AD4A54 /* EmptyPaymentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPaymentsListView.swift; sourceTree = "<group>"; };
 		D0C25B3E2938ECC100AD4A54 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		D0C25B402938ECE500AD4A54 /* Parameters+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+Ext.swift"; sourceTree = "<group>"; };
+		D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListVC.swift; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				D0C25B382937ADC800AD4A54 /* PaymentIntentsListVC.swift */,
 				D0C25B3A2938C23F00AD4A54 /* EmptyPaymentsListView.xib */,
 				D0C25B3C2938C36300AD4A54 /* EmptyPaymentsListView.swift */,
+				D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0C25B35293792CB00AD4A54 /* Pagination.swift in Sources */,
 				D0DE24932931127E00553CB4 /* CreditCardListVC.swift in Sources */,
+				D0C25B432938FB5300AD4A54 /* CustomersListVC.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
 				D0DE248F2931114600553CB4 /* CreditCard.swift in Sources */,
 				D0A795F2292F92A10007BB96 /* CreatePaymentIntent.swift in Sources */,

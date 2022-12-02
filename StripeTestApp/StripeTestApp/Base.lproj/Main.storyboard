@@ -193,6 +193,41 @@
             <point key="canvasLocation" x="-52.173913043478265" y="-1269.6428571428571"/>
         </scene>
         <!--Item-->
+        <scene sceneID="XmG-B0-eSb">
+            <objects>
+                <viewController id="FMd-ao-hqh" customClass="CustomersListVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lJD-6Z-YBa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Tk-2t-dy8">
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FMd-ao-hqh" id="TsF-Z1-rs6"/>
+                                    <outlet property="delegate" destination="FMd-ao-hqh" id="QEo-8K-ujM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aqb-cK-zOf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Tk-2t-dy8" firstAttribute="leading" secondItem="aqb-cK-zOf" secondAttribute="leading" id="DFM-4P-WYy"/>
+                            <constraint firstItem="2Tk-2t-dy8" firstAttribute="trailing" secondItem="aqb-cK-zOf" secondAttribute="trailing" id="F7P-XW-NTA"/>
+                            <constraint firstItem="2Tk-2t-dy8" firstAttribute="bottom" secondItem="aqb-cK-zOf" secondAttribute="bottom" id="amj-zU-wJo"/>
+                            <constraint firstItem="2Tk-2t-dy8" firstAttribute="top" secondItem="aqb-cK-zOf" secondAttribute="top" id="ha8-O9-gvD"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="8Cw-E2-m19"/>
+                    <connections>
+                        <outlet property="customersTableView" destination="2Tk-2t-dy8" id="1ri-H5-VHJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ga6-GA-3nh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52.173913043478265" y="-2618.3035714285711"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="sDV-k6-Hpk">
             <objects>
                 <viewController id="rWA-Ea-shf" customClass="PaymentIntentsListVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -241,6 +276,7 @@
                         <segue destination="pVz-H0-VQF" kind="relationship" relationship="viewControllers" id="rSU-Wz-XNM"/>
                         <segue destination="npI-qk-1Ul" kind="relationship" relationship="viewControllers" id="bUe-GZ-YxB"/>
                         <segue destination="rWA-Ea-shf" kind="relationship" relationship="viewControllers" id="OAF-7j-DNc"/>
+                        <segue destination="FMd-ao-hqh" kind="relationship" relationship="viewControllers" id="fr3-ep-8ci"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzC-Tb-er9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
