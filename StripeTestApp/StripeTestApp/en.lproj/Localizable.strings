@@ -33,3 +33,6 @@
 
 //EmptyPaymentsListView
 "noPaymentsView.description" = "No payments found";
+
+//EmptyCustomersListView
+"noCustomersView.description" = "Looks like you have no customers in your account";
