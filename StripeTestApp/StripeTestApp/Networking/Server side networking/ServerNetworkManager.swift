@@ -51,7 +51,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                 guard let customer = customers.first else {
                     return callback(.failure(ServerNetworkManagerError.usersListEmpty))
                 }
-                ProviderManager().send(service: PaymentMethodsProvider.saved(customer.id),
+                ProviderManager().send(service: PaymentMethodsProvider.listOfSaved(customer.id),
                                        decodeType: PaymentMethodsResponse.self) {
                     switch $0 {
                     case .success(let paymentMethodsResponse):
