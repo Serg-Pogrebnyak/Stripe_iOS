@@ -101,6 +101,6 @@ extension PaymentIntentsListVC: UITableViewDelegate {
 // MARK: - PaymentIntent Extension
 fileprivate extension PaymentIntent {
     var description: String {
-        "\(amount.description)\(currency) \(id)"
+        "\(amount.description)\(currency) \(status) \(id.suffix(6))"
     }
 }
