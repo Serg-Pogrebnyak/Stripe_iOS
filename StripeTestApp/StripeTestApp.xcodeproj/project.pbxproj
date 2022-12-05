@@ -44,6 +44,8 @@
 		D0C25B432938FB5300AD4A54 /* CustomersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */; };
 		D0C25B45293A031E00AD4A54 /* EmptyCustomersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B44293A031E00AD4A54 /* EmptyCustomersListView.swift */; };
 		D0C25B47293A032500AD4A54 /* EmptyCustomersListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0C25B46293A032500AD4A54 /* EmptyCustomersListView.xib */; };
+		D0C25B49293E140000AD4A54 /* AttachPaymentMethodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B48293E140000AD4A54 /* AttachPaymentMethodDTO.swift */; };
+		D0C25B4B293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B4A293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
@@ -97,6 +99,8 @@
 		D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersListVC.swift; sourceTree = "<group>"; };
 		D0C25B44293A031E00AD4A54 /* EmptyCustomersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCustomersListView.swift; sourceTree = "<group>"; };
 		D0C25B46293A032500AD4A54 /* EmptyCustomersListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCustomersListView.xib; sourceTree = "<group>"; };
+		D0C25B48293E140000AD4A54 /* AttachPaymentMethodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachPaymentMethodDTO.swift; sourceTree = "<group>"; };
+		D0C25B4A293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachPaymentMethodResponse.swift; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				D07234DF2934E4820002765C /* ShouldChangeCharacterModel.swift */,
 				D0C25B34293792CB00AD4A54 /* Pagination.swift */,
 				D0C25B362937ACC100AD4A54 /* PaymentIntentsResponse.swift */,
+				D0C25B48293E140000AD4A54 /* AttachPaymentMethodDTO.swift */,
+				D0C25B4A293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				D07234E52934E4B20002765C /* SCCModelFabric.swift in Sources */,
 				D0A795F8292FA4930007BB96 /* Constants.swift in Sources */,
 				D0C25B35293792CB00AD4A54 /* Pagination.swift in Sources */,
+				D0C25B4B293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift in Sources */,
 				D0DE24932931127E00553CB4 /* CreditCardListVC.swift in Sources */,
 				D0C25B432938FB5300AD4A54 /* CustomersListVC.swift in Sources */,
 				D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */,
@@ -440,6 +447,7 @@
 				D0C25B45293A031E00AD4A54 /* EmptyCustomersListView.swift in Sources */,
 				D0C25B412938ECE500AD4A54 /* Parameters+Ext.swift in Sources */,
 				D07234DC2934D4AA0002765C /* NSObject+Ext.swift in Sources */,
+				D0C25B49293E140000AD4A54 /* AttachPaymentMethodDTO.swift in Sources */,
 				D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,
 				D0A795EB292F7EBF0007BB96 /* CustomerProvider.swift in Sources */,

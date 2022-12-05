@@ -85,6 +85,24 @@ final class ServerNetworkManager: ServerNetworkManagerType {
         }
     }
     
+    func attach(paymentMethodId: String, callback: @escaping (Result<AttachPaymentMethodResponse>) -> Void) {
+        getUsers {
+            switch $0 {
+            case .success(let customers):
+                guard let customer = customers.first else {
+                    return callback(.failure(ServerNetworkManagerError.usersListEmpty))
+                }
+                let attachPaymentMethodDTO = AttachPaymentMethodDTO(customerId: customer.id,
+                                                                    paymentMethodId: paymentMethodId)
+                ProviderManager().send(service: PaymentMethodsProvider.attach(attachPaymentMethodDTO),
+                                       decodeType: AttachPaymentMethodResponse.self,
+                                       callback: callback)
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+    
     func detach(creditCard: CreditCard, callback: @escaping (Result<CreditCard>) -> Void) {
         ProviderManager().send(service: PaymentMethodsProvider.detach(creditCard.id),
                                decodeType: CreditCard.self,
