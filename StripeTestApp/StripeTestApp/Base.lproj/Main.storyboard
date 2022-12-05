@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRZ-rO-niN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52.173913043478265" y="-1269.6428571428571"/>
+            <point key="canvasLocation" x="-52" y="-1954"/>
         </scene>
         <!--Item-->
         <scene sceneID="XmG-B0-eSb">
@@ -225,7 +225,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ga6-GA-3nh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52.173913043478265" y="-2618.3035714285711"/>
+            <point key="canvasLocation" x="-52" y="-3328"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="zEj-Wf-LA2">
+            <objects>
+                <viewController id="IPG-oc-qY2" customClass="CreateNewPaymentMethodVC" customModule="StripeTestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wut-NY-OTa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="S48-oy-yWF">
+                                <rect key="frame" x="30" y="312.5" width="354" height="271"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anI-vi-s5c" customClass="STPPaymentCardTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" placeholder="YES" id="GgA-2y-2ll"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-bc-yif">
+                                        <rect key="frame" x="0.0" y="143" width="354" height="128"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPe-rM-Tcv">
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkK-gu-cXv">
+                                                <rect key="frame" x="71" y="0.0" width="212" height="128"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="didTapCreateAndAttachPaymentButton:" destination="IPG-oc-qY2" eventType="touchUpInside" id="PlJ-9q-TFI"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syk-EJ-3vR">
+                                                <rect key="frame" x="283" y="0.0" width="71" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gkK-gu-cXv" firstAttribute="width" secondItem="a8s-bc-yif" secondAttribute="width" multiplier="0.6" id="3CJ-52-X2j"/>
+                                            <constraint firstItem="syk-EJ-3vR" firstAttribute="width" secondItem="XPe-rM-Tcv" secondAttribute="width" id="4xc-Hx-cJT"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xAx-wD-zXQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="S48-oy-yWF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xAx-wD-zXQ" secondAttribute="top" id="2m9-78-AIN"/>
+                            <constraint firstItem="S48-oy-yWF" firstAttribute="centerY" secondItem="Wut-NY-OTa" secondAttribute="centerY" id="JI1-mB-dzX"/>
+                            <constraint firstItem="S48-oy-yWF" firstAttribute="leading" secondItem="xAx-wD-zXQ" secondAttribute="leading" constant="30" id="LEN-L6-boy"/>
+                            <constraint firstItem="xAx-wD-zXQ" firstAttribute="trailing" secondItem="S48-oy-yWF" secondAttribute="trailing" constant="30" id="gqS-ZG-ZnQ"/>
+                            <constraint firstItem="xAx-wD-zXQ" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="S48-oy-yWF" secondAttribute="bottom" id="p4l-cW-oJq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="kzO-Y4-NOb"/>
+                    <connections>
+                        <outlet property="createAndAttachPaymentButton" destination="gkK-gu-cXv" id="bfh-cq-Hv0"/>
+                        <outlet property="creditCardTextField" destination="anI-vi-s5c" id="gUT-C3-2d9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xt-SI-vtW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52" y="-1280"/>
         </scene>
         <!--Item-->
         <scene sceneID="sDV-k6-Hpk">
@@ -260,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tqg-0b-txZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52.173913043478265" y="-1960.0446428571427"/>
+            <point key="canvasLocation" x="-52" y="-2638"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zjF-5z-lZZ">
@@ -274,9 +340,10 @@
                     <connections>
                         <segue destination="YGt-K1-IK3" kind="relationship" relationship="viewControllers" id="6vH-oj-qRB"/>
                         <segue destination="pVz-H0-VQF" kind="relationship" relationship="viewControllers" id="rSU-Wz-XNM"/>
-                        <segue destination="npI-qk-1Ul" kind="relationship" relationship="viewControllers" id="bUe-GZ-YxB"/>
-                        <segue destination="rWA-Ea-shf" kind="relationship" relationship="viewControllers" id="OAF-7j-DNc"/>
-                        <segue destination="FMd-ao-hqh" kind="relationship" relationship="viewControllers" id="fr3-ep-8ci"/>
+                        <segue destination="IPG-oc-qY2" kind="relationship" relationship="viewControllers" id="MaJ-ZS-Wey"/>
+                        <segue destination="npI-qk-1Ul" kind="relationship" relationship="viewControllers" id="6cM-cZ-QN2"/>
+                        <segue destination="rWA-Ea-shf" kind="relationship" relationship="viewControllers" id="vXc-W5-F05"/>
+                        <segue destination="FMd-ao-hqh" kind="relationship" relationship="viewControllers" id="xdK-sQ-ESM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzC-Tb-er9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

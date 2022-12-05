@@ -46,6 +46,7 @@
 		D0C25B47293A032500AD4A54 /* EmptyCustomersListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0C25B46293A032500AD4A54 /* EmptyCustomersListView.xib */; };
 		D0C25B49293E140000AD4A54 /* AttachPaymentMethodDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B48293E140000AD4A54 /* AttachPaymentMethodDTO.swift */; };
 		D0C25B4B293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B4A293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift */; };
+		D0C25B4D293E3ACC00AD4A54 /* CreateNewPaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C25B4C293E3ACC00AD4A54 /* CreateNewPaymentMethodVC.swift */; };
 		D0DE247B292FCB2600553CB4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */; };
 		D0DE2484292FD61200553CB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0DE2486292FD61200553CB4 /* Localizable.strings */; };
 		D0DE248B292FD7AB00553CB4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DE248A292FD7AB00553CB4 /* R.generated.swift */; };
@@ -101,6 +102,7 @@
 		D0C25B46293A032500AD4A54 /* EmptyCustomersListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCustomersListView.xib; sourceTree = "<group>"; };
 		D0C25B48293E140000AD4A54 /* AttachPaymentMethodDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachPaymentMethodDTO.swift; sourceTree = "<group>"; };
 		D0C25B4A293E2D5900AD4A54 /* AttachPaymentMethodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachPaymentMethodResponse.swift; sourceTree = "<group>"; };
+		D0C25B4C293E3ACC00AD4A54 /* CreateNewPaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPaymentMethodVC.swift; sourceTree = "<group>"; };
 		D0DE247A292FCB2600553CB4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		D0DE247E292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0DE247F292FD59B00553CB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				D0C25B422938FB5300AD4A54 /* CustomersListVC.swift */,
 				D0C25B44293A031E00AD4A54 /* EmptyCustomersListView.swift */,
 				D0C25B46293A032500AD4A54 /* EmptyCustomersListView.xib */,
+				D0C25B4C293E3ACC00AD4A54 /* CreateNewPaymentMethodVC.swift */,
 			);
 			path = StripeTestApp;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				D0DE24912931115300553CB4 /* PaymentMethodsResponse.swift in Sources */,
 				D0A795F4292F92B60007BB96 /* CustomerResponse.swift in Sources */,
 				D0A795EB292F7EBF0007BB96 /* CustomerProvider.swift in Sources */,
+				D0C25B4D293E3ACC00AD4A54 /* CreateNewPaymentMethodVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
