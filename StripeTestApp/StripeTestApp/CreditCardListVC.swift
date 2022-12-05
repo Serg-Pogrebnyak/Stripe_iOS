@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Stripe
 
 final class CreditCardListVC: UIViewController {
+    
+    private struct PaymentDTO {
+        let amount: Float
+        let creditCard: CreditCard
+    }
     
     // MARK: Outlets
     @IBOutlet private weak var amountTextField: AmountTextField!
@@ -23,6 +29,26 @@ final class CreditCardListVC: UIViewController {
         
         return view
     }()
+    private lazy var paymentIntentHandler: STPPaymentHandlerActionPaymentIntentCompletionBlock = { (status, paymentIntent, error) in
+        switch status {
+        case .failed:
+            let errorMessageDescription = [
+                R.string.localizable.ccListPaymentFailed(),
+                error?.description ?? .init()
+            ]
+            .filter { !$0.isEmpty}
+            .joined(separator: "\n")
+            ProgressHUD.show(error: errorMessageDescription)
+        case .canceled:
+            ProgressHUD.show(error:  R.string.localizable.ccListPaymentCanceled())
+        case .succeeded:
+            if let paymentIntent = paymentIntent {
+                ProgressHUD.show(success: paymentIntent.paymentDescription)
+            } else {
+                ProgressHUD.show(success: R.string.localizable.paymentSucceeded())
+            }
+        }
+    }
     
     // MARK: VC life cycle
     override func viewDidLoad() {
@@ -111,18 +137,23 @@ final class CreditCardListVC: UIViewController {
         }
     }
     
-    private func makeNewPaymentFromSavedCC(byIndex indexPath: IndexPath) {
-        guard   amountTextField.isValid,
-                creditCards.indices.contains(indexPath.row),
-                let amount = amountTextField.amount
-        else {
-            ProgressHUD.show(error: R.string.localizable.applePayAmountIsIncorrect())
-            return
-        }
-        
+    private func showAlertToSelectPaymentProvider(paymentDTO: PaymentDTO) {
+        let alertActions: [UIAlertAction] = [
+            .init(withTitle: R.string.localizable.ccListPayLikeServer(), handler: { [weak self] _ in
+                self?.makeNewPaymentFromSavedCCLikeFromServer(paymentDTO: paymentDTO)
+            }),
+            .init(withTitle: R.string.localizable.ccListPayLikePhone(), handler: { [weak self] _ in
+                self?.makeNewPaymentFromSavedCCLikeFromPhone(paymentDTO: paymentDTO)
+            }),
+            .init(withTitle: R.string.localizable.cancel(), style: .destructive)
+        ]
+        showAlert(withTitle: R.string.localizable.ccListPayLike(), actions: alertActions)
+    }
+    
+    private func makeNewPaymentFromSavedCCLikeFromServer(paymentDTO: PaymentDTO) {
         ProgressHUD.show()
-        ServerNetworkManager().payViaSavedCC(amount: AmountConverter.amountToCents(amount),
-                                             creditCard: creditCards[indexPath.row])
+        ServerNetworkManager().payViaSavedCC(amount: AmountConverter.amountToCents(paymentDTO.amount),
+                                             creditCard: paymentDTO.creditCard)
         {
             switch $0 {
             case .success(let responseModel):
@@ -130,6 +161,38 @@ final class CreditCardListVC: UIViewController {
             case .failure(let error):
                 ProgressHUD.show(error: error.localizedDescription)
             }
+        }
+    }
+    
+    private func makeNewPaymentFromSavedCCLikeFromPhone(paymentDTO: PaymentDTO) {
+        let amountInCents = AmountConverter.amountToCents(paymentDTO.amount)
+        ProgressHUD.show()
+        ServerNetworkManager().createSecret(forAmount: amountInCents) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let secret):
+                let methodIntent = STPPaymentIntentParams(clientSecret: secret)
+                methodIntent.paymentMethodId = paymentDTO.creditCard.id
+                // NOTE: We should mark payment method for future usage, this will allow our server to make off session transactions
+                methodIntent.setupFutureUsage = .offSession
+                STPPaymentHandler.shared().confirmPayment(methodIntent,
+                                                          with: strongSelf,
+                                                          completion: strongSelf.paymentIntentHandler)
+            case .failure(let error):
+                ProgressHUD.show(error: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func makePaymentDTOOrShowError(byIndex indexPath: IndexPath) -> PaymentDTO? {
+        if  amountTextField.isValid,
+            creditCards.indices.contains(indexPath.row),
+            let amount = amountTextField.amount
+        {
+            return .init(amount: amount, creditCard: creditCards[indexPath.row])
+        } else {
+            ProgressHUD.show(error: R.string.localizable.applePayAmountIsIncorrect())
+            return nil
         }
     }
 }
@@ -149,10 +212,12 @@ extension CreditCardListVC: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension CreditCardListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        makeNewPaymentFromSavedCC(byIndex: indexPath)
+        guard let paymentDTO = makePaymentDTOOrShowError(byIndex: indexPath) else { return }
+        showAlertToSelectPaymentProvider(paymentDTO: paymentDTO)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -166,11 +231,31 @@ extension CreditCardListVC: UITableViewDelegate {
     }
 }
 
+// MARK: - STPAuthenticationContext
+extension CreditCardListVC: STPAuthenticationContext {
+    func authenticationPresentingViewController() -> UIViewController {
+        self
+    }
+}
+
 // MARK: - PaymentIntent Extension
 fileprivate extension PaymentIntent {
     var description: String {
         R.string.localizable.paymentSucceededWithStatus() + status + "\n" +
         R.string.localizable.orderAmount() + amount.description + currency + "\n" +
         R.string.localizable.customerId() + customerId
+    }
+}
+
+// MARK: - STPPaymentIntent Extension
+extension STPPaymentIntent {
+    var paymentDescription: String {
+        let amountToDisplay = AmountConverter.centsToAmount(amount)
+        var description =   R.string.localizable.paymentSucceededWithStatus() + status.description + "\n" +
+                            R.string.localizable.orderAmount() + amountToDisplay.description + currency + "\n"
+        if let customerId = paymentMethod?.customerId {
+            description.append(R.string.localizable.customerId() + customerId)
+        }
+        return description
     }
 }

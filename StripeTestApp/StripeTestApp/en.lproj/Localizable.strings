@@ -10,11 +10,13 @@
 "Yes" = "Yes";
 "No" = "No";
 "Delete" = "Delete";
+"Cancel" = "Cancel";
 "amountTextFieldPlaceholder" = "Please enter amount to pay";
 "paymentSucceeded" = "Payment succeeded!";
 "paymentSucceededWithStatus" = "Payment succeeded with status:";
 "orderAmount" = "Order Amount:";
 "customerId" = "Customer id:";
+"noCustomer" = "No customer";
 
 "tabBar.creditCard" = "Credit Cards";
 
@@ -27,6 +29,11 @@
 "ccList.areYouSure" = "Are you sure?";
 "ccList.confirmToDeleteAction" = "Tap yes if you confirm delete action";
 "ccList.removedCardNotFound" = "Removed credit card not found, refresh payment methods and try again";
+"ccList.payLike" = "Pay like from:";
+"ccList.payLikePhone" = "Phone";
+"ccList.payLikeServer" = "Server";
+"ccList.paymentFailed" = "Payment failed";
+"ccList.paymentCanceled" = "Payment canceled";
 
 //EmptyCreditCardListView
 "emptyCCView.description" = "No saved credit cards for future payments";
