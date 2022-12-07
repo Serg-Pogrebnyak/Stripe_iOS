@@ -35,6 +35,13 @@
 "ccList.paymentFailed" = "Payment failed";
 "ccList.paymentCanceled" = "Payment canceled";
 
+//CreateNewPaymentMethodVC
+"createNewPM.createAndAttach" = "Create & Attach payment method";
+"createNewPM.cardIsInvalid" = "Credit card data is invalid";
+"createNewPM.someError" = "Uuuppsss... some error...";
+"createNewPM.attachedTo" = "Payment method attached to customer with id: ";
+"createNewPM.cardInfo" = "card info: ";
+
 //EmptyCreditCardListView
 "emptyCCView.description" = "No saved credit cards for future payments";
 
