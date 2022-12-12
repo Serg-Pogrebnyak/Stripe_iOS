@@ -19,6 +19,6 @@ struct Customer: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
-        description = try values.decode(String.self, forKey: .description)
+        description = try values.decodeIfPresent(String.self, forKey: .description) ?? .init()
     }
 }

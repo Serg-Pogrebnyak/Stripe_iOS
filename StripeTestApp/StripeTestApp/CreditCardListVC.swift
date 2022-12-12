@@ -90,10 +90,11 @@ final class CreditCardListVC: UIViewController {
             switch $0 {
             case .success(let creditCards):
                 self?.creditCards = creditCards
-                self?.endRefreshingAndReloadTableView()
             case .failure(let error):
                 ProgressHUD.show(error: error.localizedDescription)
             }
+            
+            self?.endRefreshingAndReloadTableView()
         }
     }
     
