@@ -116,7 +116,7 @@ final class ServerNetworkManager: ServerNetworkManagerType {
                                                     callback: callback)
     }
     
-    func getCustomers(pagination: PaginationType, callback: @escaping (Result<CustomerResponse>) -> Void)  {
+    func getCustomers(pagination: PaginationType, callback: @escaping (Result<CustomerResponse>) -> Void) {
         ProviderManager().send(service: CustomerProvider.customers,
                                decodeType: CustomerResponse.self,
                                callback: callback)
